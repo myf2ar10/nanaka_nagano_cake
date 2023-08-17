@@ -1,2 +1,13 @@
-<h1>Public::Items#show</h1>
-<p>Find me in app/views/public/items/show.html.erb</p>
+<div>
+  <div><%= @item.image %></div>
+  <div>
+    <div><%= @item.name %></div>
+    <div><%= @item.detail %></div>
+    <div>￥<%= @item.orice.to_s(:delimited) %>（税込）</div>
+    <%= form_with model: @cart_items do |f| %>
+    <%= f.select :count, 1..10, prompt: "個数選択" %>
+    <%= f.submit "カートに入れる", class: "btn" %>
+    
+    
+  </div>
+</div>
