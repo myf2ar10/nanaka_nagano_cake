@@ -1,0 +1,45 @@
+<div class="col-md-12">
+  <header class="p-2">
+    <div class="d-flex justify-content-between align-items-center mb-4">
+      <%= link_to "Nagano Cake", root_path, class: "navbar-brand text-dark" %>
+
+      <% if member_signed_in? %>
+      <p>ようこそ<%= current_member.family_name %>さん！</p>
+      <div>
+        <nav class="mb-2">
+          <ul class="navbar-nav list-group-horizontal">
+            <li class="nav-item"><%= link_to "マイページ", members_mypage_path, class: "btn btn-outline-secondary mr-3" %></li>
+            <li class="nav-item"><%= link_to "商品一覧", items_path, class: "btn btn-outline-secondary mr-3" %></li>
+            <li class="nav-item"><%= link_to "カート", cart_items_path, class: "btn btn-outline-secondary mr-3" %></li>
+            <li class="nav-item"><%= link_to "ログアウト", destroy_member_session_path, method: :delete, class: "btn btn-outline-secondary mr-3" %></li>
+          </ul>
+        </nav>
+
+        <form class="form-inline">
+          <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+          <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+        </form>
+      </div>
+
+      <% else %>
+
+      <div>
+        <nav class="mb-2">
+          <ul class="navbar-nav list-group-horizontal">
+            <li class="nav-item"><%= link_to "About", about_path, class: "btn btn-outline-secondary mr-3" %></li>
+            <li class="nav-item"><%= link_to "商品一覧", items_path, class: "btn btn-outline-secondary mr-3" %></li>
+            <li class="nav-item"><%= link_to "新規登録", new_member_registration_path, class: "btn btn-outline-secondary mr-3" %></li>
+            <li class="nav-item"><%= link_to "ログイン", new_member_session_path, class: "btn btn-outline-secondary mr-3" %></li>
+          </ul>
+        </nav>
+
+        <form class="form-inline">
+          <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+          <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+        </form>
+      </div>
+
+      <% end %>
+    </div>
+  </header>
+</div>
