@@ -1,13 +1,19 @@
 <div>
-  <div><%= @item.image %></div>
+  <%= render 'genre', genres: @genres %>
+</div>
+
+
+<div>
+  <div><%= image_tag @item.image, size: "200x200" %></div>
   <div>
     <div><%= @item.name %></div>
     <div><%= @item.detail %></div>
     <div>￥<%= @item.orice.to_s(:delimited) %>（税込）</div>
+    <% if
     <%= form_with model: @cart_items do |f| %>
-    <%= f.select :count, 1..10, prompt: "個数選択" %>
-    <%= f.submit "カートに入れる", class: "btn" %>
-    
-    
+      <%= f.select :count, 1..10, prompt: "個数選択" %>
+      <%= f.submit "カートに入れる", class: "btn" %>
+    <% end %>
+
   </div>
 </div>

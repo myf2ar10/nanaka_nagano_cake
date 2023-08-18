@@ -1,7 +1,11 @@
+<div>
+  <%= render 'genre', genres: @genres %>
+</div>
+
 <table>
   <thead>
     <% @items.each do |item| %>
-    <tr><th>商品一覧</th><th>(全<%= item.count %>件)</th></tr>
+    <tr><h3>商品一覧</h3><th>(全<%= item.count %>件)</th></tr>
   </thead>
   <tbody>
     <td>
@@ -9,8 +13,8 @@
       <td><%= item.name %></td>
       <td><%= item.price %></td>
     </td>
-    
+
   </tbody>
     <% end %>
-  
+
 </table>
