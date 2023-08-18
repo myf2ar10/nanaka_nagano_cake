@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
-  
-  
+
+
 # 顧客用
 # URL /members/sign_in ...
 devise_for :member,skip: [:passwords], controllers: {
@@ -13,7 +13,7 @@ devise_for :member,skip: [:passwords], controllers: {
 devise_for :admin, skip: [:registrations, :passwords] ,controllers: {
   sessions: "admin/sessions"
 }
-  
+
   # 顧客用
   scope module: :public do
     root to: "homes#top"
@@ -37,16 +37,16 @@ devise_for :admin, skip: [:registrations, :passwords] ,controllers: {
     end
     resources :addresses, except: [:show]
   end
-  
+
   #管理者用
   namespace :admin do
-    get "/admin" => "homes#top"
+    root to: "homes#top"
     resources :items, except: [:destroy]
     resources :genres, except:  [:show, :destroy]
     resources :members, only: [:index, :show, :edit, :update]
-    resources :orders, only: [:show, :update] 
+    resources :orders, only: [:show, :update]
     resources :order_details, only: [:update]
   end
-  
+
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
