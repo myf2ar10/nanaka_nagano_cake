@@ -40,7 +40,7 @@ devise_for :admin, skip: [:registrations, :passwords] ,controllers: {
 
   #管理者用
   namespace :admin do
-    get "/admin" => "homes#top"
+    root to: "homes#top"
     resources :items, except: [:destroy]
     resources :genres, except:  [:show, :destroy]
     resources :members, only: [:index, :show, :edit, :update]
