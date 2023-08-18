@@ -15,7 +15,7 @@
 </div>
 <div>
   <h4>ジャンル</h4>
-  <%= f.select, :genre_id, @genre.name, {prompt:"--選択してください--"}, :class => 'form-control' %>
+  <%= f.select, :genre_id, @genre.name, {prompt:"--選択してください--"}, class: 'form-control' %>
 </div>
 <div>
   <h4>税抜価格</h4>
@@ -27,8 +27,7 @@
   <% f.label :is_active, "販売中" %>
   <% f.radio_button :is_active, :false %>
   <% f.label :is_active, "販売停止中" %>
-  
+
 </div>
   <%= f.submit "新規登録", class: "submit-btn" %>
 <% end %>
- 
