@@ -1,2 +1,39 @@
-<h1>Public::Homes#top</h1>
-<p>Find me in app/views/public/homes/top.html.erb</p>
+<div class="container p-3">
+  <div class="row">
+    <%= render 'public/shared/header.html.erb' %>
+
+  <div class="col-md-3 col-md-offset-1">
+    <%= render 'public/items/genre_search.html.erb' %>
+  </div>
+
+  <div class="col-md-8">
+    <div class="main-visual">
+      <p>ようこそ、ながのCAKEへ!</p>
+      <p>このサイトは、ケ ーキ販売のECサイトになります。</p>
+      <p>会 員でない方も商品の開覧はできますが、</p>
+      <p>購入には会員登録が必要になります。</p>
+    </div>
+
+    <div class= "new-items-area">
+      <h3>新着商品</h3>
+
+      <div class="new-items d-flex">
+
+        <!--@lastest_items.each do |item|-->
+        <div class="new-item mr-2">
+           <!--image_tag item.image, size: "200x150"-->
+           <!--item.name %-->
+           <!--item.price %-->
+        </div>
+        <!--end-->
+
+      </div>
+      <%= link_to "全ての商品を見る >", items_path %>
+    </div>
+  </div>
+
+    <%= render 'public/shared/footer.html.erb' %>
+  </div>
+</div>
+
+
