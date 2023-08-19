@@ -3,7 +3,7 @@ Rails.application.routes.draw do
 
 # 顧客用
 # URL /members/sign_in ...
-devise_for :member,skip: [:passwords], controllers: {
+devise_for :members,skip: [:passwords], controllers: {
   registrations: "public/registrations",
   sessions: 'public/sessions'
 }
