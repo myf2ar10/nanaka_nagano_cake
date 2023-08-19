@@ -9,7 +9,7 @@ class ApplicationController < ActionController::Base
       members_mypage_path
     end
   end
- 
+
   protected
 
   def configure_permitted_parameters
