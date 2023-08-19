@@ -9,9 +9,15 @@ class Admin::ItemsController < ApplicationController
   end
   def create
     item = Item.new(item_params)
-    item.save
+    if item.save
     flash[:notice] = "新規登録に成功しました。"
     redirect_to admin_item_path(item.id)
+    else
+      flash[:notice] = "新規登録に失敗しました。"
+      @item = Item.new
+      @genre = Genre.all
+      render new
+    end
   end
 
   def show
@@ -24,9 +30,13 @@ class Admin::ItemsController < ApplicationController
   
   def update
     item = Item.find(params[:id])
-    item.update(item_params)
+    if item.update(item_params)
     flash[:notice] = "編集に成功しました。"
     redirect_to admin_item_path(item.id)
+    else
+      flash[:notice] = "編集に失敗しました。"
+      @item = Item.find(params[:id])
+      render edit
   end
   
   private
