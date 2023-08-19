@@ -8,7 +8,7 @@
   <div>
     <div><%= @item.name %></div>
     <div><%= @item.detail %></div>
-    <div>￥<%= @item.orice.to_s(:delimited) %>（税込）</div>
+    <div>￥<%= @item.price.to_s(:delimited) %>（税込）</div>
     <% if @item.is_active == ture %>
       <%= form_with model: @cart_items do |f| %>
         <%= f.select :quantity, 1..10, prompt: "個数選択" %>
