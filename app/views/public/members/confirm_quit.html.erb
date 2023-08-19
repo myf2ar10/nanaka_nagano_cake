@@ -1,2 +1,19 @@
-<h1>Public::Members#confirm_quit</h1>
-<p>Find me in app/views/public/members/confirm_quit.html.erb</p>
+<div class="container p-3">
+  <div class="row">
+    <%= render 'public/shared/header.html.erb' %>
+
+  <div class="col-md-12 text-center">
+    <h4>本当に退会しますか?</h4>
+    <p>退会すると、会員登録情報や これまでの購入履歴が閲覧できなくなります。 </p>
+    <p>退会する場合は、 「退会する」をクリックしてください。</p>
+
+    <%= link_to "退会しない", members_mypage_path, class: "btn btn-info" %>
+    <%= link_to "退会する", members_quit_path, method: :patch, class: "btn btn-danger" %>
+
+  </div>
+
+    <%= render 'public/shared/footer.html.erb' %>
+  </div>
+</div>
+
+

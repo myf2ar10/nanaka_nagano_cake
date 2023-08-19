@@ -1,2 +1,57 @@
-<h1>Public::Members#show</h1>
-<p>Find me in app/views/public/members/show.html.erb</p>
+<div class="container p-3">
+  <div class="row">
+    <%= render 'public/shared/header.html.erb' %>
+
+  <div class="col-md-8 col-md-offset-4">
+    <%= flash[:notice] %>
+    <h3>マイページ</h3>
+    <table>
+      <tr>
+        <td><h4>登録情報</h4></td>
+        <td><%= link_to "編集する", members_information_edit_path, class: "btn btn-success" %></td>
+      </tr>
+    </table>
+    <table class="table">
+      <tr>
+        <td>氏名</td>
+        <td><%= @member.family_name + @member.first_name %></td>
+      </tr>
+      <tr>
+        <td>カナ</td>
+        <td><%= @member.family_name_kana + @member.first_name_kana %></td>
+      </tr>
+      <tr>
+        <td>郵便番号</td>
+        <td><%= @member.post_code %></td>
+      </tr>
+      <tr>
+        <td>住所</td>
+        <td><%= @member.address %></td>
+      </tr>
+      <tr>
+        <td>電話番号</td>
+        <td><%= @member.telephone_number %></td>
+      </tr>
+      <tr>
+        <td>メールアドレス</td>
+        <td><%= @member.email %></td>
+      </tr>
+    </table>
+
+    <table>
+      <tr>
+        <td><h4>配送先</h4></td>
+        <td><%= link_to "一覧を見る", addresses_path, class: "btn btn-info"  %></td>
+      </tr>
+      <tr>
+        <td><h4>注文履歴</h4></td>
+        <td><%= link_to "一覧を見る", orders_path, class: "btn btn-info" %></td>
+      </tr>
+    </table>
+  </div>
+
+    <%= render 'public/shared/footer.html.erb' %>
+  </div>
+</div>
+
+
