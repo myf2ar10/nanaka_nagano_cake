@@ -1,9 +1,9 @@
 
 <h3>商品一覧</h3>
-<div>
-  <%= link_to, "+", edit_admin_item, class="btn btn-light" %>
-</div>
 
+<p>
+  <%= button_to "ログアウト", destroy_admin_session_path, method: :delete %>
+</p>
 <table>
   <thead>
     <th>商品ID</th>
@@ -12,25 +12,9 @@
     <th>ジャンル</th>
     <th>ステータス</th>
   </thead>
-  
+
   <tbody>
-    <% @itmes.each do |item| %>
-    <tr>
-      <td><%= item.id %></td>
-      <td>
-        <%= link_to item.name, admin_item_path(item.id) %>
-      </td>
-      <td><%= item.price %></td>
-      <td><%= item.genre_id.name %></td>
-      <td>
-      <% if item.is_active == true %>
-        <p>販売中</p>
-      <% else %>
-        <p>販売停止中</p>
-      <% end %>
-      </td>
-    </tr>
-    <% end %>
+
   </tbody>
 </table>
 
