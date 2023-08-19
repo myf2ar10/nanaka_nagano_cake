@@ -1,8 +1,9 @@
 <div class="container p-3">
   <div class="row">
-    <%= render 'admin/shared/header.html.erb' %>
+    <!-- render 'admin/shared/header.html.erb' -->
     <div class="col-md-12">
 
+      <%= flash[:notice] %>
       <h3><%= @member.family_name + @member.first_name %>さんの会員詳細</h3>
 
       <table>
@@ -36,15 +37,21 @@
         </tr>
         <tr>
           <td>会員ステータス</td>
-          <td><%= @member.is_deleted %></td>
+          <td>
+            <% if @member.is_deleted == true %>
+              退会済
+            <% else %>
+              有効
+            <% end %>
+          </td>
         </tr>
       </table>
 
       <%= link_to "編集する", edit_admin_member_path, class: "btn btn-success" %>
-      <%= link_to "注文履歴一覧を見る", admin_orders_path, class: "btn btn-info" %>
+      <%= link_to "注文履歴一覧を見る", admin_order_path, class: "btn btn-info" %>
 
     </div>
-    <%= render 'admin/shared/footer.html.erb' %>
+     <!--render 'admin/shared/footer.html.erb' -->
   </div>
 </div>
 

@@ -1,8 +1,9 @@
 <div class="container p-3">
   <div class="row">
-    <%= render 'admin/shared/header.html.erb' %>
+     <!--render 'admin/shared/header.html.erb'-->
     <div class="col-md-12">
 
+      <%= flash[:notice] %>
       <h3>さんの会員情報編集</h3>
 
       <%= form_with model: @member, url: admin_member_path, method: :patch do |f| %>
@@ -50,7 +51,7 @@
       <% end %>
 
     </div>
-    <%= render 'admin/shared/footer.html.erb' %>
+     <!--render 'admin/shared/footer.html.erb' -->
   </div>
 </div>
 

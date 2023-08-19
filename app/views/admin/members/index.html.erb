@@ -17,13 +17,22 @@
             <td><%= member.id %></td>
             <td><%= link_to member.family_name + member.first_name, admin_member_path(member.id) %></td>
             <td><%= member.email %></td>
-            <td><%= member.is_deleted %></td>
+            <td>
+              <% if member.is_deleted == true %>
+                退会済み
+              <% else %>
+                有効
+              <% end %>
+            </td>
           </tr>
         <% end %>
       </table>
 
+       <%= paginate @members %>
+
     </div>
      <!--render 'admin/shared/footer.html.erb' -->
+  </div>
 </div>
 
 
