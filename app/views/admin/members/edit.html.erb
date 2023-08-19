@@ -4,7 +4,7 @@
     <div class="col-md-12">
 
       <%= flash[:notice] %>
-      <h3>さんの会員情報編集</h3>
+      <h3><%= @member.family_name + @member.first_name %>さんの会員情報編集</h3>
 
       <%= form_with model: @member, url: admin_member_path, method: :patch do |f| %>
 
