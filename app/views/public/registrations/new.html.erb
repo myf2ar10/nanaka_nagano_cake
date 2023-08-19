@@ -10,55 +10,46 @@
             <td>(姓)　<%= f.text_field :family_name, autofocus: true, placeholder: "令和" %>
                 (名)　<%= f.text_field :first_name, placeholder: "道子" %></td>
           </tr>
-         
           <tr>
             <td>フリガナ</td>
             <td>(セイ)<%= f.text_field :family_name_kana, placeholder: "レイワ"%>
                 (メイ)<%= f.text_field :first_name_kana, placeholder: "ミチコ" %></td>
           </tr>
- 
           <tr>
             <td>メールアドレス</td>
             <td><%= f.text_field :email, placeholder: "sample@example.com" %></td>
           </tr>
-  
           <tr>
             <td>郵便番号(ハイフンなし)</td>
             <td><%= f.text_field :post_code, placeholder: "0000000" %></td>
           </tr>
- 
           <tr>
             <td>住所</td>
             <td><%= f.text_field :address, size: 55, placeholder: "東京都渋谷区代々木神園町0-0" %></td>
           </tr>
-
           <tr>
             <td>電話番号(ハイフンなし)</td>
             <td><%= f.text_field :telephone_number, placeholder: "00000000000" %></td>
           </tr>
-  
           <tr>
             <td>パスワード
-                  <% if @minimum_password_length %>
-                    <em>(<%= @minimum_password_length %> 文字以上)</em>
-                  <% end %>
+              <% if @minimum_password_length %>
+                (<%= @minimum_password_length %> 文字以上)
+              <% end %>
             </td>
-            <td><%= f.text_field :password, autocomplete: "new-password" %></td>
+            <td><%= f.text_field :password %></td>
           </tr>
-
           <tr>
             <td>パスワード(確認用)</td>
-            <td><%= f.text_field :password_confirmation, autocomplete: "new-password" %></td>
+            <td><%= f.text_field :password_confirmation %></td>
           </tr>
-  
           <tr>
             <td></td>
             <td><%= f.submit "新規登録", class:"btn btn-success" %></td>
           </tr>  
         </table>
-        
         <h4>既に登録済みの方</h4>
-        <!--<%#= link_to “こちら”, member_session_path %>からログインしてください。--エラーになるのでコメントアウトしてます>
+        <%= link_to "こちら", new_member_session_path %>からログインしてください。
       <% end %>
     </div>
   </div>

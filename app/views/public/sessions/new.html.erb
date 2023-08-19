@@ -1,18 +1,17 @@
 <div class="container">
   <div class="row">
     <div class="col">
-      <h2>ログイン</h2>
+      <h2 class="my-4">ログイン</h2>
       <h4>会員の方はこちらからログイン</h4>
-      
       <%= form_with model: @member, url: session_path(resource_name) do |f| %>
         <table class="table table-borderless">
           <tr>
             <td><%= f.label :email, "メールアドレス" %></td>
-            <td><%= f.email_field :email, autofocus: true, autocomplete: "email", class:"form-control" %></td>
+            <td><%= f.email_field :email, autofocus: true, class:"form-control" %></td>
           </tr>
           <tr>
             <td><%= f.label :password, "パスワード" %></td>
-            <td><%= f.password_field :password, autocomplete: "current-password", class:"form-control" %></td>            
+            <td><%= f.password_field :password, placeholder: "sample@example.com", class:"form-control" %></td>            
           </tr>
           <tr>
             <td></td>
@@ -20,9 +19,8 @@
           </tr>
         </table>
         <% end %>
-      
       <h4>会員登録がお済みでない方</h4>
-      <!--<%#= link_to “こちら”, member_registration_path %>から新規登録を行ってください。エラーになるのでコメントアウトしてます-->
+      <%= link_to "こちら", new_member_registration_path %>から新規登録を行ってください。
     </div>
   </div>
 </div>
