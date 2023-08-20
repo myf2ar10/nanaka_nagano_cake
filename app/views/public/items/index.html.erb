@@ -4,8 +4,12 @@
 
 <table>
   <thead>
-    <% @items.each do |item| %>
-    <tr><h3>商品一覧</h3><th>(全<%= item.count %>件)</th></tr>
+    
+    <tr>
+      <h3>商品一覧</h3>
+      <% @items.each do |item| %>
+      <th>(全<%= item.count %>件)</th>
+    </tr>
   </thead>
   <tbody>
     <td>

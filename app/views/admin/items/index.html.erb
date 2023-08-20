@@ -1,11 +1,17 @@
+<div class="container p-3">
+  <div class="row">
+    <%= render 'admin/shared/header.html.erb' %>
+    <div class="col-md-12">
+      <h3>商品一覧</h3>
+    </div>
+  </div>
+</div>
 
-<h3>商品一覧</h3>
+
 <div>
   <%= link_to "追加", new_admin_item_path %>
 </div>
-<p>
-  <%= button_to "ログアウト", destroy_admin_session_path, method: :delete %>
-</p>
+
 <table>
   <thead>
     <th>商品ID</th>
