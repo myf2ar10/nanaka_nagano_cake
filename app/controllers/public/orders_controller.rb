@@ -1,5 +1,5 @@
 class Public::OrdersController < ApplicationController
-  before_action :authenticate_member!, only: [:new, :create, :confirm, :index, :show, :complete]
+  before_action :authenticate_member!, only: [:new, :confirm, :create, :index, :show, :complete]
 
   def new
   end
@@ -10,6 +10,7 @@ class Public::OrdersController < ApplicationController
 
     @selected_pay_method = params[:order][:pay_method]
 
+    # 商品の合計額
     ary = []
     @cart_items.each do |cart_item|
       ary << cart_item.item.price*cart_item.quantity
@@ -36,7 +37,6 @@ class Public::OrdersController < ApplicationController
         render :new
       end
     end
-
   end
 
   def create
