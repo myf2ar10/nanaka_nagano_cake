@@ -8,7 +8,7 @@
       <%= form_with model: @item, url: admin_items_path do |f| %>
       <div>
         <%= f.label :image, '商品画像' %>
-        <%= f.file_field :image, class: 'form-control' %>
+        <%= f.file_field :image, class: 'form-control', size: 200 %>
       </div>
       <div>
         <%= f.label :name, '商品名' %>
