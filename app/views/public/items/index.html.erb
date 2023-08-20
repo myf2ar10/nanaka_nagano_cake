@@ -1,12 +1,21 @@
-<div>
+
+<div class="container p-3">
+  <div class="row">
+    <%= render 'public/shared/header.html.erb' %>
+
+  <div class="col-md-3 col-md-offset-1">
+    <%= render 'public/items/genre_search.html.erb' %>
+  </div>
+  <div>
   <%= render 'genre', genres: @genres %>
 </div>
 
 <table>
   <thead>
-    
+
     <tr>
       <h3>商品一覧</h3>
+      <% if @items.nil? %>
       <% @items.each do |item| %>
       <th>(全<%= item.count %>件)</th>
     </tr>
@@ -17,8 +26,16 @@
       <td><%= item.name %></td>
       <td><%= item.price %></td>
     </td>
-
-  </tbody>
+    <% end %>
+    <% else %>
+     <td>商品準備中です！</td>
     <% end %>
 
+  </tbody>
+
+
 </table>
+
+  <%= render 'public/shared/footer.html.erb' %>
+  </div>
+</div>
