@@ -23,14 +23,18 @@
 
   <tbody>
     <% if @items.nil? %>
-      <% @itmes.each do |item| %>
+    <tr>
+      <td>まだ商品は登録されていません。</td>
+    </tr>
+    <% else %>
+      <% @items.each do |item| %>
         <tr>
           <td><%= item.id %></td>
           <td>
             <%= link_to item.name, admin_item_path(item.id) %>
           </td>
-          <td><%= item.price %></td>
-          <td><%= item.genre_id.name %></td>
+          <td>　￥<%= @item.add_tax_price.to_s(:delimited) %>(<%= @item.price.to_s(:delimited) %></td>
+          <td><%= item.genre.name %></td>
           <td>
           <% if item.is_active == true %>
             <p>販売中</p>
@@ -40,11 +44,9 @@
           </td>
         </tr>
       <% end %>
-    <% else %>
-    <tr>
-      <td>まだ商品は登録されていません。</td>
-    </tr>
+
     <% end %>
+
 
   </tbody>
 </table>

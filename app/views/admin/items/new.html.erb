@@ -5,7 +5,7 @@
 
       <h3>商品新規登録</h3>
 
-      <%= form_with model: @item do |f| %>
+      <%= form_with model: @item, url: admin_items_path do |f| %>
       <div>
         <%= f.label :image, '商品画像' %>
         <%= f.file_field :image, class: 'form-control' %>
