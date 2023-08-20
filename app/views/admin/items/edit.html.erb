@@ -3,35 +3,35 @@
     <%= render 'admin/shared/header.html.erb' %>
     <div class="col-md-12">
       <h3>商品編集</h3>
-      
-      <%= form_with model: @item do |f| %>
+
+      <%= form_with model: @item, url: admin_item_path do |f| %>
       <div>
-        <h4>商品画像</h4>
-        <%= f.file_field :image %>
+        <%= f.label :image, '商品画像' %>
+        <%= f.file_field :image, class: 'w-100' %>
       </div>
       <div>
-        <h4>商品名</h4>
-        <%= f.text_fild :name %>
+        <%= f.label :name, '商品名' %>
+        <%= f.text_field :name, class: 'form-control' %>
       </div>
       <div>
-        <h4>商品説明</h4>
-        <%= f.text_area :detail %>
+        <%= f.label :detail, '商品説明' %>
+        <%= f.text_area :detail, class: 'form-control' %>
       </div>
       <div>
-        <h4>ジャンル</h4>
-        <%= f.select, :genre_id, @genre.name, {prompt:"--選択してください--"}, :class => 'form-control' %>
+        <%= f.label :genre_id, '商品ジャンル' %>
+        <%= f.collection_select :genre_id, @genres,:id, :name, {prompt: "--選択してください--"}, class: 'form-control' %>
       </div>
       <div>
-        <h4>税抜価格</h4>
-        <%= f.text_fild :price %>
+        <%= f.label :price, '商品価格' %>
+        <%= f.text_field :price, class: 'form-control' %>
       </div>
       <div>
-        <h4>販売ステータス</h4>
-        <% f.radio_button :is_active, :true, checked: ture %>
-        <% f.label :is_active, "販売中" %>
-        <% f.radio_button :is_active, :false %>
-        <% f.label :is_active, "販売停止中" %>
-        
+        <%= f.label :is_active, '販売ステータス' %>
+        <%= f.radio_button :is_active, :true, checked: true %>
+        <%= f.label :is_active, "販売中" %>
+        <%= f.radio_button :is_active, :false %>
+        <%= f.label :is_active, "販売停止中" %>
+
       </div>
         <%= f.submit "変更を保存", class: "submit-btn" %>
       <% end %>
@@ -40,4 +40,3 @@
 </div>
 
 
- 
