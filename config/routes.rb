@@ -31,7 +31,7 @@ devise_for :admin, skip: [:registrations, :passwords] ,controllers: {
     end
     resources :orders, only: [:new, :create, :index, :show] do
       collection do
-        post "confirm"
+        get "confirm"
         get "complete"
       end
     end
