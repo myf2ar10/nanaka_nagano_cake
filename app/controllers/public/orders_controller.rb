@@ -1,42 +1,7 @@
 class Public::OrdersController < ApplicationController
-  before_action :authenticate_member!, only: [:new, :confirm, :create, :index, :show]
+  before_action :authenticate_member!, only: [:new, :confirm, :create, :index, :show, :complete]
 
   def new
-  end
-
-  def confirm
-    @cart_items = CartItem.where(member_id: current_member.id)
-    @shipping_fee = 800
-
-    @selected_pay_method = params[:order][:pay_method]
-
-    ary = []
-    @cart_items.each do |cart_item|
-      ary << cart_item.item.price*cart_item.quantity
-    end
-    @cart_items_price = ary.sum
-
-    @total_price = @shipping_fee + @cart_items_price
-
-    @address_type = params[:order][:address_type]
-    case @address_type
-    when "member_address"
-      @selected_address = current_member.post_code + " " + current_member.address + " " + current_member.family_name + current_member.first_name
-    when "registered_address"
-      unless params[:order][:registered_address_id] == ""
-        selected = Addresse.find(params[:order][:registered_address_id])
-        @selected_address = selected.post_code + " " + selected.address + " " + selected.name
-      else
-        render :new
-      end
-    when "new_address"
-      unless params[:order][:new_post_code] == "" && params[:order][:new_address] == "" && params[:order][:new_name] == ""
-        @selected_address = params[:order][:new_post_code] + " " + params[:order][:new_address] + " " + params[:order][:new_name]
-      else
-        render :new
-      end
-    end
-
   end
 
   def create
@@ -96,6 +61,42 @@ class Public::OrdersController < ApplicationController
 
   end
 
+  def confirm
+    @cart_items = CartItem.where(member_id: current_member.id)
+    @shipping_fee = 800
+
+    @selected_pay_method = params[:order][:pay_method]
+
+    ary = []
+    @cart_items.each do |cart_item|
+      ary << cart_item.item.price*cart_item.quantity
+    end
+    @cart_items_price = ary.sum
+
+    @total_price = @shipping_fee + @cart_items_price
+
+    @address_type = params[:order][:address_type]
+    case @address_type
+    when "member_address"
+      @selected_address = current_member.post_code + " " + current_member.address + " " + current_member.family_name + current_member.first_name
+    when "registered_address"
+      unless params[:order][:registered_address_id] == ""
+        selected = Addresse.find(params[:order][:registered_address_id])
+        @selected_address = selected.post_code + " " + selected.address + " " + selected.name
+      else
+        render :new
+      end
+    when "new_address"
+      unless params[:order][:new_post_code] == "" && params[:order][:new_address] == "" && params[:order][:new_name] == ""
+        @selected_address = params[:order][:new_post_code] + " " + params[:order][:new_address] + " " + params[:order][:new_name]
+      else
+        render :new
+      end
+    end
+
+  end
+
+
   def index
     @orders = Order.where(member_id: current_member.id).order(created_at: :desc).page(params[:page]).per(10)
   end
@@ -103,6 +104,9 @@ class Public::OrdersController < ApplicationController
   def show
     @order = Order.find(params[:id])
     @order_details= OrderDetail.where(order_id: @order.id)
+  end
+
+  def complete
   end
 
 end
