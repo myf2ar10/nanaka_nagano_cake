@@ -2,34 +2,29 @@
 <div class="container p-3">
   <div class="row">
     <%= render 'public/shared/header.html.erb' %>
-
-  <div class="col-md-3 col-md-offset-1">
-    <%= render 'public/items/genre_search.html.erb' %>
-  </div>
-
+    <div class="col-md-3 col-md-offset-1">
+      <%= render 'public/items/genre_search.html.erb' %>
+    </div>
+    <div>
+      <div><%= image_tag @item.image, size: "200x200" %></div>
+      <div>
+        <div><%= @item.name %></div>
+        <div><%= @item.detail %></div>
         <div>
-          <div><%= image_tag @item.image, size: "200x200" %></div>
-          <div>
-            <div><%= @item.name %></div>
-            <div><%= @item.detail %></div>
-            <div>
-              ￥<%= @item.price.to_s(:delimited) %>（税込）
-            </div>
-            <% if @item.is_active == true %>
-              <%= form_with model: @cart_items do |f| %>
-                <%= f.select :quantity, 1..10, prompt: "個数選択" %>
-                <%= f.submit "カートに入れる", class: "btn" %>
-                <%= f.hidden_field :item_id, :value => @item.id %>
-                <%= f.hidden_field :member_id, :value => current_member.id %>
-              <% end %>
-            <% else %>
-              <P>販売停止中</P>
-            <% end %>
-
-
-          </div>
+          ￥<%= @item.add_tax_price.to_s(:delimited) %>（税込）
         </div>
-
-     <%= render 'public/shared/footer.html.erb' %>
+        <% if @item.is_active == true %>
+          <%= form_with model: @cart_item, url: cart_items_path do |f| %>
+            <%= f.select :quantity, 1..10, prompt: "個数選択" %>
+            <%= f.submit "カートに入れる", class: "btn" %>
+            <%= f.hidden_field :item_id, :value => @item.id %>
+          <% end %>
+        <% else %>
+          <P>販売停止中</P>
+        <% end %>
+      </div>
+      <%= flash[:notice] %>
+    </div>
+    <%= render 'public/shared/footer.html.erb' %>
   </div>
 </div>

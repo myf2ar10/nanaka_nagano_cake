@@ -2,18 +2,18 @@ class Public::CartItemsController < ApplicationController
   before_action :authenticate_member!
 
   def index
-    @cart_items = current_member.cart_items
+    @cart_items = CartItem.where(member:current_member)
     @total = @cart_items.inject(0) { |sum, item| sum + item.subtotal }
   end
 
   def create
-    @cart_item = current_member.cart_items.find_or_initialize_by(item_id: params[:cart_item][:item_id])
-
-    if current_member.cart_items.find_by(item_id: @cart_item.item_id).present?
-      @cart_item.count += params[:cart_item][:count].to_i
-    else
-      @cart_item = CartItem.new(cart_item_params)
-      @cart_item.member_id = current_customer.id
+    @cart_item = CartItem.new(cart_item_params)
+    @cart_item.member_id = current_member.id
+    
+    @existing_cart_item = CartItem.find_by(item: @cart_item.item)
+    if @existing_cart_item.present? and @cart_item.valid?
+      @cart_item.quantity += @existing_cart_item.quantity
+      @existing_cart_item.destroy
     end
 
     if @cart_item.save
@@ -21,6 +21,7 @@ class Public::CartItemsController < ApplicationController
     else
       redirect_to item_path(@cart_item.item), notice: "追加に失敗しました。"
     end
+    
   end
   
   def update
@@ -53,7 +54,7 @@ class Public::CartItemsController < ApplicationController
   private
   
   def cart_item_params
-    params.require(:cart_item).permit(:member_id, :item_id, :count)
+    params.require(:cart_item).permit(:item_id, :quantity)
   end
 
 end
