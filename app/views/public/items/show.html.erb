@@ -7,7 +7,7 @@
     <%= render 'public/items/genre_search.html.erb' %>
   </div>
 
-        <div>
+        <div class="col-md-8 col-md-offset-4">
           <div><%= image_tag @item.image, size: "200x200" %></div>
           <div>
             <div><%= @item.name %></div>
@@ -25,8 +25,6 @@
             <% else %>
               <P>販売停止中</P>
             <% end %>
-
-
           </div>
         </div>
 

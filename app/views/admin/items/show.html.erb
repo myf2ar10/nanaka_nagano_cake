@@ -2,10 +2,10 @@
   <div class="row">
     <%= render 'admin/shared/header.html.erb' %>
     <div class="col-md-12">
+      <%= flash[:notice] %>
       <h3>商品詳細</h3>
-      <div><%= image_tag @item.image, size: "200x200" %></div>
-
-      <table>
+      <table class="table">
+        <div><%= image_tag @item.image, size: "200x200" %></div>
         <tr>
           <td>商品名</td>
           <td><%= @item.name %></td>
