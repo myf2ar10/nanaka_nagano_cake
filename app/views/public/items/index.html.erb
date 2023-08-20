@@ -1,20 +1,43 @@
-<div>
-  <%= render 'genre', genres: @genres %>
+
+<div class="container p-3">
+  <div class="row">
+    <%= render 'public/shared/header.html.erb' %>
+
+      <div class="col-md-3 col-md-offset-1">
+        <%= render 'public/items/genre_search.html.erb' %>
+      </div>
+
+        <table>
+          <thead>
+            <tr>
+              <h3>商品一覧(全<%= Item.count %>件)</h3>
+
+              <% if @items.nil? %>
+                <td>商品準備中です！</td>
+               <% else %>
+                <% @items.each do |item| %>
+
+            </tr>
+          </thead>
+          <tbody>
+                <td>
+                  <td>
+                    <%= link_to item_path(item) do %>
+                      <%= image_tag item.image, size: "150x150" %>
+                    <% end %>
+                  </td>
+                  <td>
+                    <%= link_to item_path(item) do %>
+                      <%= item.name %>
+                    <% end %>
+                  </td>
+                  <td>￥<%= item.add_tax_price.to_s(:delimited) %>(<%= item.price.to_s(:delimited) %>)</td>
+                </td>
+                <% end %>
+            <% end %>
+          </tbody>
+        </table>
+
+  <%= render 'public/shared/footer.html.erb' %>
+  </div>
 </div>
-
-<table>
-  <thead>
-    <% @items.each do |item| %>
-    <tr><h3>商品一覧</h3><th>(全<%= item.count %>件)</th></tr>
-  </thead>
-  <tbody>
-    <td>
-      <td><%= item.image %></td>
-      <td><%= item.name %></td>
-      <td><%= item.price %></td>
-    </td>
-
-  </tbody>
-    <% end %>
-
-</table>

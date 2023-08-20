@@ -4,7 +4,7 @@
     <div class="col-md-12">
       <h3>商品詳細</h3>
       <div><%= image_tag @item.image, size: "200x200" %></div>
-      
+
       <table>
         <tr>
           <td>商品名</td>
@@ -21,7 +21,7 @@
         <tr>
           <td>税込価格<br>(税抜価格)</td>
           <td>
-      　　　￥<%= @item.add_tax_price.to_s(:delimited) %>(<%= @item.price.to_s(:delimited) %>)円
+      　　　￥<%= @item.add_tax_price.to_s(:delimited) %>(<%= @item.price.to_s(:delimited) %>)
       　　</td>
         </tr>
         <tr>
@@ -35,7 +35,7 @@
           </td>
         </tr>
       </table>
-      <%= link_to edit_admin_item(item.id) do %>
+      <%= link_to edit_admin_item_path(@item.id) do %>
        <buttun class="btn btn-success">編集する</buttun>
       <% end %>
     </div>
