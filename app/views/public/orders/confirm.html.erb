@@ -41,7 +41,12 @@
     </table>
 
     <h4>支払い方法</h4>
-    <%= @selected_pay_method %>
+
+    <% if @selected_pay_method == "credit_card" %>
+      クレジットカード
+    <% else %>
+      銀行振込
+    <% end %>
 
     <h4>お届け先</h4>
     <%= @selected_address %>
