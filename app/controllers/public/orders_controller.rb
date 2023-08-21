@@ -13,7 +13,7 @@ class Public::OrdersController < ApplicationController
     # 商品の合計額
     ary = []
     @cart_items.each do |cart_item|
-      ary << cart_item.item.price*cart_item.quantity
+      ary << cart_item.item.add_tax_price*cart_item.quantity
     end
     @cart_items_price = ary.sum
 
@@ -47,7 +47,7 @@ class Public::OrdersController < ApplicationController
     @cart_items = CartItem.where(member_id: current_member.id)
     ary = []
     @cart_items.each do |cart_item|
-      ary << cart_item.item.price*cart_item.quantity
+      ary << cart_item.item.add_tax_price*cart_item.quantity
     end
     @cart_items_price = ary.sum
     @order.total_price = @order.shipping_fee + @cart_items_price

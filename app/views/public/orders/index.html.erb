@@ -4,8 +4,9 @@
 
   <div class="col-md-12">
     <h3>注文履歴一覧</h3>
-    <table class="table">
-      <tr>
+    <table class="table table-bordered">
+      <!--<thead class="table-secondary">-->
+      <tr class="table-secondary">
         <td>注文日</td>
         <td>配送先</td>
         <td>注文商品</td>
@@ -13,6 +14,7 @@
         <td>ステータス</td>
         <td>注文詳細</td>
       </tr>
+      <!--</thead>-->
       <% @orders.each do |order| %>
     <tr>
       <td><%= order.created_at.strftime('%Y/%m/%d') %></td>
@@ -24,14 +26,14 @@
           <% end %>
         </ul>
       </td>
-      <td><%= order.total_price %></td>
+      <td><%= order.total_price.to_s(:delimited) %>円</td>
       <td><%= order.status_i18n %></td>
       <td><%= link_to "表示する", order_path(order.id), class: "btn btn-info" %></td>
     </tr>
     <% end %>
     </table>
 
-    <%= paginate @orders, theme: 'bootstrap-5' %>
+     paginate @orders, theme: 'bootstrap-5'
 
   </div>
 
