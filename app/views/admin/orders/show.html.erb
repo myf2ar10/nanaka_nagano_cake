@@ -20,8 +20,7 @@
               <div>注文ステータス</div>
               <div>
                 <%= form_with model: @order, url: admin_order_path do |f| %>
-                 <%#= f.select :status, Order.statuses.keys.map { |k| [t("enum.order.status.#{k}"), k]}, class: 'from-control' %>
-                 <%= f.select :status, Order.statuses.keys.map { |k| [I18n.t("enums.order.status.#{k}"), k]}, class: 'form-control' %>
+                 <%= f.select :status, Order.statuses.keys.map { |k| [I18n.t("enums.order.status.#{k}"), k]}, class: 'from-control' %>
                  <%= f.submit "更新", class: 'success-btn' %>
                 <% end %>
               </div>
@@ -48,7 +47,7 @@
             <td><%= (order_detail.add_tax_price * order_detail.quantity).to_s(:delimited) %></td>
             <%= form_with model: @order_details, url: admin_order_path do |f| %>
             <td>
-              <%= f.select :making_status, OrderDetail.making_statuses.keys.map { |k| [t("enum.order_detail.making_status.#{k}"), k]}, class: 'from-control' %>
+              <%= f.select :making_status, OrderDetail.making_statuses.keys.map { |k| [I18n.t("enums.order_detail.making_status.#{k}"), k]}, class: 'from-control' %>
             </td>
             <td>
               <%= f.submit "更新", class: 'success-btn' %>
