@@ -33,7 +33,7 @@
     <table class="table table-bordered">
       <tr>
         <td class="table-secondary">商品合計</td>
-        <td><%= @order.total_price.to_s(:delimited) %></td>
+        <td><%= (@order.total_price - @order.shipping_fee).to_s(:delimited) %></td>
       </tr>
       <tr>
         <td class="table-secondary">配送料</td>
@@ -60,9 +60,9 @@
       <% @order_details.each do |order_detail| %>
         <tr>
           <td><%= order_detail.item.name %></td>
-          <td><%= order_detail.item.price.to_s(:delimited) %></td>
+          <td><%= order_detail.item.add_tax_price.to_s(:delimited) %></td>
           <td><%= order_detail.quantity %></td>
-          <td><%= (order_detail.quantity * order_detail.item.price).to_s(:delimited) %></td>
+          <td><%= (order_detail.quantity * order_detail.item.add_tax_price).to_s(:delimited) %></td>
         </tr>
       <% end %>
     </table>
