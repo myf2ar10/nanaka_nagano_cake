@@ -12,7 +12,7 @@ class Admin::OrdersController < ApplicationController
       @order = Order.find(params[:id])
       @order_details = OrderDetail.where(order_id: @order.id)
       flash[:notice] = "注文ステータスの更新に失敗しました。"
-      render show
+      render "orders/show"
     end
   end
 end
