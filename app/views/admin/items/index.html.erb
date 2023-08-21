@@ -4,20 +4,20 @@
     <div class="col-md-12">
       <%= flash[:notice] %>
       <h3>商品一覧</h3>
-<div>
-  <%= link_to "追加", new_admin_item_path %>
-</div>
+        <div class="pull-right">
+          <%= link_to "+", new_admin_item_path, class: 'btn btn-primary rounded-circle p-0 btn-lg', style: 'width:30px;height:30px;' %>
+        </div>
 
         <table class="table">
           <thead>
             <tr>
               <th>商品ID</th>
               <th>商品名</th>
-              <th>税抜価格</th>
+              <th>税込価格(税抜価格)</th>
               <th>ジャンル</th>
               <th>ステータス</th>
             </tr>
-            
+
           </thead>
 
           <tbody>
@@ -30,15 +30,15 @@
                 <tr>
                   <td><%= item.id %></td>
                   <td>
-                    <%= link_to item.name, admin_item_path(item.id) %>
+                    <%= link_to item.name, admin_item_path(item.id), class: 'link-secondary link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover' %>
                   </td>
                   <td>　￥<%= item.add_tax_price.to_s(:delimited) %>(<%= item.price.to_s(:delimited) %>)</td>
                   <td><%= item.genre.name %></td>
                   <td>
                   <% if item.is_active == true %>
-                    <p>販売中</p>
+                    <b class="text-success">販売中</b>
                   <% else %>
-                    <p>販売停止中</p>
+                    <b class="text-secondary">販売停止中</b>
                   <% end %>
                   </td>
                 </tr>
