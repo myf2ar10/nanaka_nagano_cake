@@ -2,26 +2,62 @@
   <div class="row">
     <%= render 'admin/shared/header.html.erb' %>
     <div class="col-md-12">
+      <%= flash[:notice] %>
       <h3>注文履歴詳細</h3>
-      
-      
-      <table>
+      <div class="container">
+        <div class="row">
+          <div class="col-12">
+              <div>購入者</div>
+              <div><%= @order.name %></div>
+              <div>注文日</div>
+              <div><%= @order.created_at.strftime('%Y/%m/%d') %></div>
+              <div>配送先</div>
+              <div>〒<%= @order.post_code %></div>
+              <div><%= @order.address %></div>
+              <div><%= @order.name %></div>
+              <div>支払方法</div>
+              <div><%= @order.pay_method_i18n %></div>
+              <div>注文ステータス</div>
+              <div>
+                <%= form_with model: @order, url: admin_order_path do |f| %>
+                 <%= f.select :status, Order.order_statuses.keys.map { |k| [I18n.t("enum.order.order_status.#{k}"), k]}, class: 'from-control' %>
+                 <%= f.submit "更新", class: 'success-btn' %>
+                <% end %>
+              </div>
+
+          </div>
+        </div>
+      </div>
+
+      <table class="table">
         <thead>
-          <th></th>
-          <th></th>
-          <th></th>
-          <th></th>
+          <th>商品名</th>
+          <th>単価(税込)</th>
+          <th>数量</th>
+          <th>小計</th>
+          <th>製作ステータス</th>
           <th></th>
         </thead>
         <tbody>
-          <% @items.each do |item| %> 
+          <% @order_details.each do |order_detail| %>
           <tr>
-            <td><%= </td>
+            <td><%= order_detail.item.name %></td>
+            <td><%= order_detail.add_tax_price.to_s(:delimited) %></td>
+            <td><%= order_detail.quantity %></td>
+            <td><%= (order_detail.add_tax_price * order_detail.quantity).to_s(:delimited) %></td>
+            <%= form_with model: @order_details, url: admin_order_path do |f| %>
+            <td>
+              <%= f.select :making_status, OrderDetail.making_statuses.keys.map { |k| [I18n.t("enum.order_detail.making_status.#{k}"), k]}, class: 'from-control' %>
+            </td>
+            <td>
+              <%= f.submit "更新", class: 'success-btn' %>
+            </td>
+            <% end %>
           </tr>
           <% end %>
         </tbody>
       </table>
-      
+
     </div>
   </div>
 </div>
