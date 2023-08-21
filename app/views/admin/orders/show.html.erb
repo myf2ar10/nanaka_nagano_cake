@@ -12,7 +12,7 @@
           <div>購入者</div>
         </div>
         <div class="col-md-2">
-          <div><%= @order.name %></div>
+          <div><%= link_to @order.name, admin_member_path(@order.member_id), class: "text-dark" %></div>
         </div>
         <div class="offset-md-8"></div>
 
@@ -51,7 +51,7 @@
           <div>
             <%= form_with model: @order, url: admin_order_path do |f| %>
              <%= f.select :status, Order.statuses.keys.map { |k| [I18n.t("enums.order.status.#{k}"), k]}, class: 'from-control' %>
-             <%= f.submit "更新", class: 'success-btn' %>
+             <%= f.submit "更新", class: 'btn btn-success' %>
             <% end %>
           </div>
         </div>
@@ -80,7 +80,7 @@
               <%= f.select :making_status, OrderDetail.making_statuses.keys.map { |k| [I18n.t("enums.order_detail.making_status.#{k}"), k]}, class: 'from-control' %>
             </td>
             <td>
-              <%= f.submit "更新", class: 'success-btn' %>
+              <%= f.submit "更新", class: 'btn btn-success' %>
             </td>
             <% end %>
           </tr>
@@ -92,7 +92,7 @@
       <div class="col-md-3 offset-md-1">
         <table>
           <tr>
-            <td>商品合計</td>
+            <td><h5>商品合計</h5></td>
             <td>
               <% ary = [] %>
               <% @order_details.each do |order_detail| %>
@@ -103,12 +103,12 @@
             </td>
           </tr>
           <tr>
-            <td>送料</td>
+            <td><h5>送料</h5></td>
             <td><%= @order.shipping_fee.to_s(:delimited) %>円</td>
           </tr>
           <tr>
-            <td>請求金額合計</td>
-            <td><%= @order.total_price.to_s(:delimited) %>円</td>
+            <td><h5>請求金額合計</h5></td>
+            <td><strong><%= @order.total_price.to_s(:delimited) %>円</strong></td>
           </tr>
         </table>
       </div>
