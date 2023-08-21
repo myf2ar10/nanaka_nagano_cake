@@ -5,7 +5,7 @@ class Admin::OrdersController < ApplicationController
   end
   def update
     order = Order.find(params[:id])
-    if order.save
+    if order.update
       flash[:notice] = "注文ステータスの更新に成功しました。"
       redirect_to admin_order_path(order.id)
     else
