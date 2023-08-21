@@ -44,7 +44,11 @@ devise_for :admin, skip: [:registrations, :passwords] ,controllers: {
     resources :items, except: [:destroy]
     resources :genres, except:  [:show, :destroy]
     resources :members, only: [:index, :show, :edit, :update]
-    resources :orders, only: [:show, :update]
+    resources :orders, only: [:show, :update] do
+      member do
+        get "individual"
+      end
+    end
     resources :order_details, only: [:update]
   end
 

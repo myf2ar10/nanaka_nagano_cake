@@ -1,4 +1,6 @@
 class Admin::OrdersController < ApplicationController
+  before_action :authenticate_admin!
+  
   def show
     @order = Order.find(params[:id])
     @order_details = OrderDetail.where(order_id: @order.id)
@@ -14,6 +16,11 @@ class Admin::OrdersController < ApplicationController
       flash[:notice] = "注文ステータスの更新に失敗しました。"
       render "orders/show"
     end
+  end
+  
+  def individual
+    @member = Member.find(params[:id])
+    @orders = @member.orders.page(params[:page])
   end
 
   private
