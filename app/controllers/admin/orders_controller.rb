@@ -10,7 +10,7 @@ class Admin::OrdersController < ApplicationController
       redirect_to admin_order_path(order.id)
     else
       @order = Order.find(params[:id])
-      @order_details = OrderDetail.all
+      @order_details = OrderDetail.where(order_id: @order.id)
       flash[:notice] = "注文ステータスの更新に失敗しました。"
       render show
     end
