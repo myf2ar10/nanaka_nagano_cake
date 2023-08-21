@@ -13,7 +13,7 @@ class Public::OrdersController < ApplicationController
     # 商品の合計額
     ary = []
     @cart_items.each do |cart_item|
-      ary << cart_item.item.price*cart_item.quantity
+      ary << cart_item.item.add_tax_price*cart_item.quantity
     end
     @cart_items_price = ary.sum
 
@@ -47,7 +47,7 @@ class Public::OrdersController < ApplicationController
     @cart_items = CartItem.where(member_id: current_member.id)
     ary = []
     @cart_items.each do |cart_item|
-      ary << cart_item.item.price*cart_item.quantity
+      ary << cart_item.item.add_tax_price*cart_item.quantity
     end
     @cart_items_price = ary.sum
     @order.total_price = @order.shipping_fee + @cart_items_price
@@ -81,11 +81,11 @@ class Public::OrdersController < ApplicationController
     if @order.save
       if @order.status == 0
         @cart_items.each do |cart_item|
-          OrderDetail.create!(order_id: @order.id, item_id: cart_item.item.id, price: cart_item.item.price, quantity: cart_item.quantity, making_status: 0)
+          OrderDetail.create!(order_id: @order.id, item_id: cart_item.item.id, price: cart_item.item.add_tax_price, quantity: cart_item.quantity, making_status: 1)
         end
       else
         @cart_items.each do |cart_item|
-          OrderDetail.create!(order_id: @order.id, item_id: cart_item.item.id, price: cart_item.item.price, quantity: cart_item.quantity, making_status: 1)
+          OrderDetail.create!(order_id: @order.id, item_id: cart_item.item.id, price: cart_item.item.add_tax_price, quantity: cart_item.quantity, making_status: 0)
         end
       end
       @cart_items.destroy_all
