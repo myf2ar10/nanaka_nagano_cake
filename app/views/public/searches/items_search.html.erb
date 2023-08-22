@@ -1,0 +1,40 @@
+
+<div class="container p-3">
+  <div class="row">
+    <%= render 'public/shared/header.html.erb' %>
+
+      <div class="col-md-3 col-md-offset-1">
+        <%= render 'public/items/genre_search.html.erb' %>
+      </div>
+      <div class="col-md-8 col-md-offset-4">
+
+    <h3>商品検索結果一覧(全<%= @items.count %>件)</h3>
+
+            <div class="container">
+              <div class="row row-cols-4">
+
+                <% @items.each do |item| %>
+                <diV class="col">
+                  <div>
+                    <%= link_to item_path(item) do %>
+                      <%= image_tag item.image, size: "150x150" %>
+                    <% end %>
+                  </div>
+                  <div>
+                    <%= link_to item_path(item) do %>
+                      <%= item.name %>
+                    <% end %>
+                  </div>
+                  <div>
+                    ￥<%= item.add_tax_price.to_s(:delimited) %>(<%= item.price.to_s(:delimited) %>)
+                  </div>
+                </diV>
+                <% end %>
+
+              </div>
+            </div>
+          </div>
+    <div><%= paginate @items %></div>
+  <%= render 'public/shared/footer.html.erb' %>
+  </div>
+</div>

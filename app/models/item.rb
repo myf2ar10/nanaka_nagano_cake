@@ -13,4 +13,8 @@ class Item < ApplicationRecord
   def add_tax_price
     (self.price * 1.08).round
   end
+
+  def self.looks(search, word)
+    @item = Item.where("name LIKE?","%#{word}%")
+  end
 end
