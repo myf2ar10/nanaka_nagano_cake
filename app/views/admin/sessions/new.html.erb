@@ -7,7 +7,7 @@
 
       </div>
       <h2 class="mb-5 mt-3">管理者ログイン</h2>
-      <div class="container">
+      <!--<div class="container">-->
       <%= form_with model: @admin, url: admin_session_path do |f| %>
         <div class="row">
           <div class="col-3">メールアドレス</div>
@@ -22,11 +22,14 @@
             <%= f.password_field :password, autocomplete: "current-password", class: 'form-control' %>
           </div>
         </div>
-        <div class="col">
-          <%= f.submit "ログイン", class: "btn btn-success" %>
+
+        <div class="row">
+          <div class="col-md-3 offset-md-3 mt-3">
+            <%= f.submit "ログイン", class: "btn btn-success" %>
+          </div>
         </div>
       <% end %>
-      </div>
+      <!--</div>-->
 
       <%= render "admin/shared/links" %>
     </div>
