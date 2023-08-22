@@ -31,7 +31,7 @@
         <div class="new-item mr-2">
           <p>
             <%= link_to item_path(item) do %>
-              <%= image_tag item.image, size: "200x150" %>
+              <%= image_tag item.image, size: "200x150", class: "object-fit-cover" %>
             <% end %>
           </p>
           <p>
