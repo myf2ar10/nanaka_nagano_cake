@@ -26,17 +26,6 @@
               </ul>
             </nav>
 
-            <div class="clearfix">
-              <form class="form-inline float-right">
-                <input class="form-control mr-sm-2 search-form" type="search" placeholder="Search" aria-label="Search">
-                <button class="btn text-secondary my-2 my-sm-0" type="submit">
-                  <i class="fas fa-search"></i>
-                </button>
-              </form>
-            </div>
-          </div>
-
-
           <% else %>
 
           <div>
@@ -49,17 +38,9 @@
               </ul>
             </nav>
 
-            <div class="clearfix">
-              <form class="form-inline float-right">
-                <input class="form-control mr-sm-2 search-form" type="search" placeholder="Search" aria-label="Search">
-                <button class="btn text-secondary my-2 my-sm-0" type="submit">
-                  <i class="fas fa-search"></i>
-                </button>
-              </form>
-            </div>
-          </div>
 
           <% end %>
+          <%= render "public/shared/search" %>
         </div>
       </header>
     </div>
