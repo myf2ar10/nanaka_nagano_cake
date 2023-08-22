@@ -8,7 +8,7 @@ class Public::RegistrationsController < Devise::RegistrationsController
   def after_sign_up_path_for(resource)
     members_mypage_path
   end
-  
+
   # GET /resource/sign_up
   # def new
   #   super
@@ -64,7 +64,7 @@ class Public::RegistrationsController < Devise::RegistrationsController
   # def after_inactive_sign_up_path_for(resource)
   #   super(resource)
   # end
-  
+
   protected
 
   def configure_permitted_parameters
