@@ -1,7 +1,6 @@
-
+<%= render 'public/shared/header.html.erb' %>
 <div class="container p-3">
   <div class="row">
-    <%= render 'public/shared/header.html.erb' %>
 
       <div class="col-md-3 col-md-offset-1">
         <%= render 'public/items/genre_search.html.erb' %>
@@ -35,6 +34,6 @@
             </div>
           </div>
     <div><%= paginate @items %></div>
-  <%= render 'public/shared/footer.html.erb' %>
   </div>
 </div>
+<%= render 'public/shared/footer.html.erb' %>

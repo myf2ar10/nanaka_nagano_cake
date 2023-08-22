@@ -1,44 +1,43 @@
-
+<%= render 'public/shared/header.html.erb' %>
 <div class="container p-3">
-  <div class="row">
-    <%= render 'public/shared/header.html.erb' %>
+  <div class="row mt-3">
 
-  <div class="col-md-3 col-md-offset-1">
-    <%= render 'public/items/genre_search.html.erb' %>
-  </div>
-
-        <div class="col-md-8 col-md-offset-4">
-          <div class="row">
-            <div class="col-md-3"><%= image_tag @item.image, size: "200x200" %></div>
-            <div class="col-md-9">
-              <div class="container">
-
-                <div class="col"><%= @item.name %></div>
-                <div class="col"><%= @item.detail %></div>
-                <div class="col">
-                  ￥<%= @item.add_tax_price.to_s(:delimited) %>（税込）
-                </div>
-                <div class="col">
-                  <% if @item.is_active == true %>
-                    <%= form_with model: @cart_item, url: cart_items_path do |f| %>
-                      <%= f.select :quantity, 1..10, prompt: "個数選択" %>
-                      <%= f.submit "カートに入れる", class: "btn" %>
-                      <%= f.hidden_field :item_id, :value => @item.id %>
-                    <% end %>
-                  <% else %>
-                    <div>販売停止中</div>
-                  <% end %>
-                </div>
-
-              </div>
-            </div>
-
-          </div>
-
-
-
-      <%= flash[:notice] %>
+    <div class="col-md-3 mt-5 mb-5">
+      <%= render 'public/items/genre_search.html.erb' %>
     </div>
-    <%= render 'public/shared/footer.html.erb' %>
+
+      <div class="col-md-9 mt-5 mb-5">
+        <div class="d-flex mb-5">
+          <div class="mr-5">
+            <%= image_tag @item.image, size: "400x300" %>
+          </div>
+          <div>
+            <p>
+              <% if @item.is_active == true %>
+                <p class="text-success">【販売中】</p>
+              <% else %>
+                <p class="text-secondary">【販売停止中】</p>
+              <% end %>
+            </p>
+            <h4 class="border-bottom pb-2"><%= @item.name %></h4>
+            <p>本体価格 <%= @item.price.to_s(:delimited) %>円 税込<%= @item.add_tax_price.to_s(:delimited) %>円</p>
+            <div><%= @item.detail %></div>
+            <div class="mt-3">
+              <% if @item.is_active == true %>
+                <%= form_with model: @cart_item, url: cart_items_path do |f| %>
+                  数量：
+                  <%= f.select :quantity, 1..10 %>
+                  <%= f.submit "カートに入れる", class: "btn  btn-warning px-4 ml-4" %>
+                  <%= f.hidden_field :item_id, :value => @item.id %>
+                <% end %>
+              <% else %>
+                <p class="text-secondary">【販売停止中】</p>
+              <% end %>
+            </div>
+          </div>
+        </div>
+
+    </div>
   </div>
 </div>
+<%= render 'public/shared/footer.html.erb' %>
