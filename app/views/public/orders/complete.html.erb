@@ -1,13 +1,14 @@
+<%= render 'public/shared/header.html.erb' %>
 <div class="container p-3">
-  <div class="row">
-    <%= render 'public/shared/header.html.erb' %>
+  <div class="row mb-5">
+
 
   <div class="col-md-12 text-center mt-5">
-    <h3>ご注文ありがとうございました！</h3>
+    <%= image_tag "thanks.png", size: "150x150", class: "mb-5 mt-5" %>
+    <h3 class="mb-5 mt-5">ご注文ありがとうございました！</h3>
   </div>
 
-    <%= render 'public/shared/footer.html.erb' %>
   </div>
 </div>
-
+<%= render 'public/shared/footer.html.erb' %>
 
