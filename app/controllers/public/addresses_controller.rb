@@ -30,7 +30,7 @@ class Public::AddressesController < ApplicationController
     else
       @address = Address.find(params[:id])
       flash[:notice] = "住所の編集に失敗しました。"
-      render edit
+      render :edit
     end
   end
 
