@@ -23,7 +23,7 @@ devise_for :admin, skip: [:registrations, :passwords] ,controllers: {
     patch "members/information" => "members#update"
     get "members/confirm_quit" => "members#confirm_quit"
     patch "members/quit" => "members#quit"
-    get "search" => "searches#search"
+    get "search" => "searches#items_search"
     resources :items, only: [:index,:show]
     resources :cart_items, only: [:index, :update, :destroy, :create] do
       collection do
