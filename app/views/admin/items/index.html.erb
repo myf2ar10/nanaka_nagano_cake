@@ -2,7 +2,6 @@
   <div class="row">
     <%= render 'admin/shared/header.html.erb' %>
     <div class="col-md-12">
-      <%= flash[:notice] %>
       <h3>商品一覧</h3>
         <div class="pull-right">
           <%= link_to "+", new_admin_item_path, class: 'btn btn-primary rounded-circle p-0 btn-lg', style: 'width:30px;height:30px;' %>
@@ -49,7 +48,7 @@
 
           </tbody>
         </table>
-
+      <div><%= paginate @items %></div>
     </div>
   </div>
 </div>

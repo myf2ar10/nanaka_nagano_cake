@@ -1,6 +1,6 @@
 class Public::ItemsController < ApplicationController
   def index
-    @items = Item.all
+    @items = Item.page(params[:page]).per(8)
     @genres = Genre.all
   end
 
@@ -9,7 +9,7 @@ class Public::ItemsController < ApplicationController
     @cart_item = CartItem.new
     @genres = Genre.all
   end
-  
+
   private
   def cart_item_params
     params.require(:cart_item).permit(:item_id, :quantity)
