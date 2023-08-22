@@ -16,8 +16,8 @@ class Admin::ItemsController < ApplicationController
     else
       flash[:notice] = "新規登録に失敗しました。"
       @item = Item.new
-      @genre = Genre.all
-      render new
+      @genres = Genre.all
+      render :new
     end
   end
 
@@ -38,7 +38,8 @@ class Admin::ItemsController < ApplicationController
     else
       flash[:notice] = "編集に失敗しました。"
       @item = Item.find(params[:id])
-      render edit
+      @genres = Genre.all
+      render :edit
     end
   end
 
