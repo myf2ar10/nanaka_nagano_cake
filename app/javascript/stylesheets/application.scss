@@ -4,5 +4,24 @@
 @import url('https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@400;600&display=swap');
 
 *{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
   font-family: 'Shippori Mincho', serif;
+}
+
+// ヘッダー
+
+header {
+  background-color: #FFEAEA;
+  width: 100%;
+}
+
+.search-form {
+  background-color: #FFEAEA;
+}
+
+.header-size {
+  max-width: 980px;
+  margin: 0 auto;
 }
