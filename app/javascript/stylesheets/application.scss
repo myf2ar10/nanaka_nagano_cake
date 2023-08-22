@@ -30,3 +30,15 @@ header {
   max-width: 980px;
   margin: 0 auto;
 }
+
+// public/homes/top
+
+.main-visual {
+  display: inline-block;
+  background-color: rgba(0,0,0,0.5);
+}
+
+.main-visual-cover {
+  text-align: center;
+  background-image: url(../images/top-image.jpg);
+}
