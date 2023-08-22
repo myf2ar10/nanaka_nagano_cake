@@ -3,22 +3,30 @@
   <div class="row">
 
     <div class="col-md-12">
+      <div class="col-md-3">
+
+      </div>
       <h2>管理者ログイン</h2>
+      <div class="container">
       <%= form_with model: @admin, url: admin_session_path do |f| %>
-        <div class="field">
-          <%= f.label :メールアドレス %><br />
-          <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "sample@example.com", class: 'form-control' %>
+        <div class="row">
+          <div class="col-3">メールアドレス</div>
+          <div class="col-6">
+            <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "sample@example.com", class: 'form-control' %>
+          </div>
         </div>
 
-        <div class="field">
-          <%= f.label :パスワード %><br />
-          <%= f.password_field :password, autocomplete: "current-password", class: 'form-control' %>
+        <div class="row">
+          <div class="col-3">パスワード</div>
+          <div class="col-6">
+            <%= f.password_field :password, autocomplete: "current-password", class: 'form-control' %>
+          </div>
         </div>
-
-        <div class="actions">
-          <%= f.submit "Log in" %>
+        <div class="col">
+          <%= f.submit "ログイン" %>
         </div>
       <% end %>
+      </div>
 
       <%= render "admin/shared/links" %>
     </div>

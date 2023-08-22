@@ -4,7 +4,7 @@
     <div class="col-md-12">
       <h3>商品編集</h3>
 
-      <%= form_with model: @item, url: admin_item_path do |f| %>
+      <%= form_with model: @item, url: admin_item_path, "data-turbolinks": false do |f| %>
       <div>
         <%= f.label :image, '商品画像' %>
         <%= f.file_field :image, class: 'w-100' %>

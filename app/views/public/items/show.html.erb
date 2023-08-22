@@ -8,23 +8,34 @@
   </div>
 
         <div class="col-md-8 col-md-offset-4">
-          <div><%= image_tag @item.image, size: "200x200" %></div>
-          <div>
-            <div><%= @item.name %></div>
-            <div><%= @item.detail %></div>
-            <div>
-              ￥<%= @item.add_tax_price.to_s(:delimited) %>（税込）
+          <div class="row">
+            <div class="col-md-3"><%= image_tag @item.image, size: "200x200" %></div>
+            <div class="col-md-9">
+              <div class="container">
+
+                <div class="col"><%= @item.name %></div>
+                <div class="col"><%= @item.detail %></div>
+                <div class="col">
+                  ￥<%= @item.add_tax_price.to_s(:delimited) %>（税込）
+                </div>
+                <div class="col">
+                  <% if @item.is_active == true %>
+                    <%= form_with model: @cart_item, url: cart_items_path do |f| %>
+                      <%= f.select :quantity, 1..10, prompt: "個数選択" %>
+                      <%= f.submit "カートに入れる", class: "btn" %>
+                      <%= f.hidden_field :item_id, :value => @item.id %>
+                    <% end %>
+                  <% else %>
+                    <div>販売停止中</div>
+                  <% end %>
+                </div>
+
+              </div>
             </div>
-            <% if @item.is_active == true %>
-              <%= form_with model: @cart_item, url: cart_items_path do |f| %>
-                <%= f.select :quantity, 1..10, prompt: "個数選択" %>
-                <%= f.submit "カートに入れる", class: "btn" %>
-                <%= f.hidden_field :item_id, :value => @item.id %>
-              <% end %>
-            <% else %>
-              <P>販売停止中</P>
-            <% end %>
+
           </div>
+
+
 
       <%= flash[:notice] %>
     </div>

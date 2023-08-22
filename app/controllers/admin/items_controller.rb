@@ -1,11 +1,12 @@
 class Admin::ItemsController < ApplicationController
   def index
-    @items = Item.all
+    @items = Item.page(params[:page])
   end
 
   def new
     @item = Item.new
     @genres = Genre.all
+    @item.is_active = true
   end
   def create
     item = Item.new(item_params)

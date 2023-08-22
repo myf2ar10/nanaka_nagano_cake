@@ -14,7 +14,7 @@ class Public::AddressesController < ApplicationController
       @addresses = Address.where(member_id: current_member.id)
       @address = Address.new
       flash[:notice] = "住所の新規登録に失敗しました。"
-      render index
+      render :index
     end
   end
 
@@ -43,7 +43,7 @@ class Public::AddressesController < ApplicationController
        flash[:notice] = "住所を削除に失敗しました。"
        @addresses = Address.where(member_id: current_member.id)
        @address = Address.new
-       render index
+       render :index
     end
   end
 
