@@ -23,7 +23,7 @@
 
   <div class="col-md-8">
     <div class= "new-items-area">
-      <h3>新着商品</h3>
+      <h3 class="mb-3">新着商品</h3>
 
       <div class="new-items d-flex">
 
@@ -34,8 +34,10 @@
               <%= image_tag item.image, size: "200x150" %>
             <% end %>
           </p>
-          <p><%= item.name %></p>
-          <p><%= item.price.to_s(:delimited) %>円</p>
+          <p>
+            <%= item.name %><br>
+            <%= item.price.to_s(:delimited) %>円
+          </p>
         </div>
         <% end %>
 
