@@ -3,12 +3,6 @@
     <div class="col-md-12 no-padding">
       <header class="p-2">
 
-      <% unless flash[:notice].blank? %>
-        <div class="text-center">
-          <p><%= flash[:notice] %></p>
-        </div>
-      <% end %>
-
         <div class="d-flex justify-content-between align-items-center header-size">
           <%= link_to root_path, class: "navbar-brand text-dark" do %>
             <%= image_tag "LOGO.png", size: "80x80" %>
@@ -62,6 +56,11 @@
         </div>
       </header>
     </div>
+  </div>
+</div>
 
-</div>
-</div>
+<% unless flash[:notice].blank? %>
+  <div class="text-center mt-2">
+    <p><%= flash[:notice] %></p>
+  </div>
+<% end %>
