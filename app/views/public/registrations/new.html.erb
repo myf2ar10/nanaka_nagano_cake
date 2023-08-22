@@ -15,39 +15,39 @@
           <tr>
             <td class="text-right">名前</td>
             <td><span class="text-light necessary-field p-1 px-2 ml-2 small rounded">必須</span></td>
-            <td><%= f.text_field :family_name, autofocus: true, placeholder: "令和", class: "mr-1 w-75" %></td>
-            <td><%= f.text_field :first_name, placeholder: "道子", class: "w-75" %></td>
+            <td><%= f.text_field :family_name, autofocus: true, placeholder: "令和", class: "mr-1 w-75 form-control" %></td>
+            <td><%= f.text_field :first_name, placeholder: "道子", class: "w-75 form-control" %></td>
           </tr>
 
           <tr>
             <td class="text-right">フリガナ</td>
             <td><span class="text-light necessary-field p-1 px-2 ml-2 small rounded">必須</span></td>
-            <td><%= f.text_field :family_name_kana, placeholder: "レイワ", class: "w-75" %></td>
-            <td><%= f.text_field :first_name_kana, placeholder: "ミチコ", class: "w-75" %></td>
+            <td><%= f.text_field :family_name_kana, placeholder: "レイワ", class: "w-75 form-control" %></td>
+            <td><%= f.text_field :first_name_kana, placeholder: "ミチコ", class: "w-75 form-control" %></td>
           </tr>
 
           <tr>
             <td class="text-right">メールアドレス</td>
             <td><span class="text-light necessary-field p-1 px-2 ml-2 small rounded">必須</span></td>
-            <td><%= f.text_field :email, placeholder: "sample@example.com", class: "w-75" %></td>
+            <td><%= f.text_field :email, placeholder: "sample@example.com", class: "w-75 form-control" %></td>
           </tr>
 
           <tr>
             <td class="text-right">郵便番号(ハイフンなし)</td>
             <td><span class="text-light necessary-field p-1 px-2 ml-2 small rounded">必須</span></td>
-            <td><%= f.text_field :post_code, placeholder: "0000000", class: "w-75" %></td>
+            <td><%= f.text_field :post_code, placeholder: "0000000", class: "w-75 form-control" %></td>
           </tr>
 
           <tr>
             <td class="text-right">住所</td>
             <td><span class="text-light necessary-field p-1 px-2 ml-2 small rounded">必須</span></td>
-            <td><%= f.text_field :address, placeholder: "東京都渋谷区代々木神園町0-0", class: "w-100" %></td>
+            <td><%= f.text_field :address, placeholder: "東京都渋谷区代々木神園町0-0", class: "w-100 form-control" %></td>
           </tr>
 
           <tr>
             <td class="text-right">電話番号(ハイフンなし)</td>
             <td><span class="text-light necessary-field p-1 px-2 ml-2 small rounded">必須</span></td>
-            <td><%= f.text_field :telephone_number, placeholder: "00000000000", class: "w-75" %></td>
+            <td><%= f.text_field :telephone_number, placeholder: "00000000000", class: "w-75 form-control" %></td>
           </tr>
 
           <tr>
@@ -57,12 +57,12 @@
               <% end %>
             </td>
             <td><span class="text-light necessary-field p-1 px-2 ml-2 small rounded">必須</span></td>
-            <td><%= f.password_field :password, class: "w-75" %></td>
+            <td><%= f.password_field :password, class: "w-75 form-control" %></td>
           </tr>
           <tr>
             <td class="text-right">パスワード(確認用)</td>
             <td><span class="text-light necessary-field p-1 px-2 ml-2 small rounded">必須</span></td>
-            <td><%= f.password_field :password_confirmation, class: "w-75" %></td>
+            <td><%= f.password_field :password_confirmation, class: "w-75 form-control" %></td>
           </tr>
         </table>
 
