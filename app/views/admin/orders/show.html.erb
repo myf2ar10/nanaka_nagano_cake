@@ -14,7 +14,7 @@
         </div>
         <div class="offset-md-8"></div>
 
-        <div class="col-md-2">
+        <div class="col-md-2 mt-1">
           <div>注文日</div>
         </div>
         <div class="col-md-2">
@@ -22,7 +22,7 @@
         </div>
         <div class="offset-md-8"></div>
 
-        <div class="col-md-2">
+        <div class="col-md-2 mt-1">
           <div>配送先</div>
         </div>
         <div class="col-md-6">
@@ -34,7 +34,7 @@
         </div>
         <div class="offset-md-4"></div>
 
-        <div class="col-md-2">
+        <div class="col-md-2 mt-1">
           <div>支払方法</div>
         </div>
         <div class="col-md-2">
@@ -42,50 +42,55 @@
         </div>
         <div class="offset-md-8"></div>
 
-        <div class="col-md-2 mb-5">
+        <div class="col-md-2 mb-5 mt-1">
           <div>注文ステータス</div>
         </div>
         <div class="col-md-2">
-          <div>
+          <div class="d-flex mt-1 align-items-center">
+            <div class="mr-3 mb-0">
             <%= form_with model: @order, url: admin_order_path do |f| %>
              <%= f.select :status, Order.statuses.keys.map { |k| [I18n.t("enums.order.status.#{k}"), k]}, class: 'from-control' %>
+             </div>
+             <div>
              <%= f.submit "更新", class: 'btn btn-success' %>
             <% end %>
+            </div>
           </div>
         </div>
         <div class="offset-md-8"></div>
-      <!--</div>-->
 
-      <div class="col-md-8">
-      <table class="table">
-        <thead class="table-secondary">
-          <th>商品名</th>
-          <th>単価(税込)</th>
-          <th>数量</th>
-          <th>小計</th>
-          <th>製作ステータス</th>
-          <th></th>
-        </thead>
-        <tbody>
-          <% @order_details.each do |order_detail| %>
-          <tr>
-            <td><%= order_detail.item.name %></td>
-            <td><%= order_detail.add_tax_price.to_s(:delimited) %></td>
-            <td><%= order_detail.quantity %></td>
-            <td><%= (order_detail.add_tax_price * order_detail.quantity).to_s(:delimited) %></td>
-            <%= form_with model: order_detail, url: admin_order_detail_path(order_detail) do |f| %>
-            <td>
-              <%= f.select :making_status, OrderDetail.making_statuses.keys.map { |k| [I18n.t("enums.order_detail.making_status.#{k}"), k]}, class: 'from-control' %>
-            </td>
-            <td>
-              <%= f.submit "更新", class: 'btn btn-success' %>
-            </td>
+    <div class="d-flex align-items-end col-md-12">
+    <div class="col-md-8">
+        <table class="table">
+          <thead class="table-secondary">
+            <th>商品名</th>
+            <th>単価(税込)</th>
+            <th>数量</th>
+            <th>小計</th>
+            <th>製作ステータス</th>
+            <th></th>
+          </thead>
+          <tbody>
+            <% @order_details.each do |order_detail| %>
+            <tr>
+              <td><%= order_detail.item.name %></td>
+              <td><%= order_detail.add_tax_price.to_s(:delimited) %></td>
+              <td><%= order_detail.quantity %></td>
+              <td><%= (order_detail.add_tax_price * order_detail.quantity).to_s(:delimited) %></td>
+              <%= form_with model: order_detail, url: admin_order_detail_path(order_detail) do |f| %>
+              <td>
+                <%= f.select :making_status, OrderDetail.making_statuses.keys.map { |k| [I18n.t("enums.order_detail.making_status.#{k}"), k]}, class: 'from-control' %>
+              </td>
+              <td>
+                <%= f.submit "更新", class: 'btn btn-success' %>
+              </td>
+              <% end %>
+            </tr>
             <% end %>
-          </tr>
-          <% end %>
-        </tbody>
-      </table>
+          </tbody>
+        </table>
       </div>
+
 
       <div class="col-md-3 offset-md-1">
         <table>
@@ -105,12 +110,12 @@
             <td><%= @order.shipping_fee.to_s(:delimited) %>円</td>
           </tr>
           <tr>
-            <td><h5>請求金額合計</h5></td>
-            <td><strong><%= @order.total_price.to_s(:delimited) %>円</strong></td>
+            <td><h5 class="mr-3">請求金額合計</h5></td>
+            <td><%= @order.total_price.to_s(:delimited) %>円</td>
           </tr>
         </table>
       </div>
+    </div>
 
-    <!--</div>-->
   </div>
 </div>
