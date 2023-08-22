@@ -1,6 +1,9 @@
 Rails.application.routes.draw do
 
 
+  namespace :admin do
+    get 'searches/items_search'
+  end
 # 顧客用
 # URL /members/sign_in ...
 devise_for :members,skip: [:passwords], controllers: {
@@ -23,7 +26,7 @@ devise_for :admin, skip: [:registrations, :passwords] ,controllers: {
     patch "members/information" => "members#update"
     get "members/confirm_quit" => "members#confirm_quit"
     patch "members/quit" => "members#quit"
-    get "search" => "searches#items_search"
+    get "items_search" => "searches#items_search"
     resources :items, only: [:index,:show]
     resources :cart_items, only: [:index, :update, :destroy, :create] do
       collection do
@@ -42,6 +45,7 @@ devise_for :admin, skip: [:registrations, :passwords] ,controllers: {
   #管理者用
   namespace :admin do
     root to: "homes#top"
+    get "items_search" => "searches#items_search"
     resources :items, except: [:destroy]
     resources :genres, except:  [:show, :destroy]
     resources :members, only: [:index, :show, :edit, :update]
