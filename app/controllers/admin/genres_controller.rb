@@ -14,7 +14,8 @@ class Admin::GenresController < ApplicationController
       redirect_to admin_genres_path
     else
       flash[:notice] = "ジャンルの登録に失敗しました。"
-      redirect_to admin_genres_path
+      @genres = Genre.all
+      render :index
     end
 
   end
@@ -31,7 +32,8 @@ class Admin::GenresController < ApplicationController
       redirect_to admin_genres_path
     else
       flash[:notice] = "ジャンルの編集に失敗しました。"
-      redirect_to request.referer
+      @genre = Genre.find(params[:id])
+      render :edit
     end
 
   end

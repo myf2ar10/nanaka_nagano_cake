@@ -4,4 +4,11 @@ class Public::SearchesController < ApplicationController
     @genres = Genre.all
     @items = Item.looks(params[:search], params[:word]).page(params[:page])
   end
+
+  def genre_items_search
+    @genres = Genre.all
+    @genre = Genre.find(params[:genre_id])
+    @items = @genre.items.page(params[:page])
+  end
+    
 end
