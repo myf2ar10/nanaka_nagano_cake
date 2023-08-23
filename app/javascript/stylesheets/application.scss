@@ -30,6 +30,14 @@ header {
   margin: 0 auto;
 }
 
+.navbar-toggler {
+  background-color: #FFEAEA;
+}
+
+.navbar-toggler .navbar-toggler-icon {
+  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(108,117,125,1)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E");
+}
+
 // public/homes/top
 
 .main-visual {
@@ -79,3 +87,66 @@ footer {
 .necessary-field {
   background-color: #F17070;
 }
+
+// 以下、レスポンシブ対応
+
+// header
+
+@media screen and (min-width:992px) {
+  .search-box-for-responsive{
+    display: none;
+  }
+  .flex-for-more-md{
+    display: flex;
+    flex-direction: column;
+  }
+  .horizontal-for-more-than-md{
+    display: flex;           /* Flexboxを有効にしてアイテムを水平にする */
+    flex-direction: row;     /* アイテムを水平方向に配置 */
+    padding-left: 0;
+  }
+  .horizontal-for-more-than-md > .nav-item {
+    display: flex;           /* アイテムを水平にする */
+    flex: 1 1 auto;          /* アイテムを均等に広げる */
+    margin-right: 0.25rem;   /* アイテム間のスペースを確保 */
+    margin-bottom: 0;        /* 縦のマージンをリセット */
+  }
+}
+
+
+@media screen and (max-width:991px) {
+  .search-box-for-more-md{
+    display: none;
+  }
+  .flex-for-less-than-md {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .flex-for-xs{
+    display: flex;
+  }
+}
+
+@media screen and (max-width:991px) {
+  .search-box-for-more-md{
+    display: none;
+  }
+  .flex-for-less-than-md {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+}
+
+// @media screen and (max-width:576px) {
+//   .flex-for-xs{
+//     display: flex;
+//   }
+// }
+
+// @media screen and (min-width:576px) {
+//   .flex-for-xs{
+//     display: block;
+//   }
+// }
