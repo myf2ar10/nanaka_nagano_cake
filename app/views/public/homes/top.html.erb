@@ -21,22 +21,23 @@
   <!--  <%#= render 'public/items/genre_search.html.erb' %>-->
   <!--</div>-->
 
-  <div class="col-12 text-center">
+  <div class="col-12 col-md-3 col-lg-3 text-center">
     <%= render 'public/items/genre_search.html.erb' %>
   </div>
 
-  <div class="col-md-8">
-    <div class= "new-items-area">
+  <!--<div class="col-md-8">-->
+  <div class="col-12 col-md-9 col-lg-9">
+    <div class= "new-items-area text-center">
       <h3 class="mb-3">新着商品</h3>
 
       <!--<div class="new-items d-flex">-->
-      <div class="new-items">
+      <div class="new-items flex-for-more-md-top flex-wrap ">
 
         <% @lastest_items.each do |item| %>
         <div class="new-item mr-2">
           <p>
             <%= link_to item_path(item) do %>
-              <%= image_tag item.image, size: "200x150", class: "object-fit-cover" %>
+              <%= image_tag item.image, size: "180x135", class: "object-fit-cover" %>
             <% end %>
           </p>
           <p>
@@ -53,6 +54,7 @@
         <% end %>
       </div>
     </div>
+  <!--</div>-->
   </div>
   </div>
 </div>
