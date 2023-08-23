@@ -7,6 +7,7 @@
       <p>こちらからログインを行ってください。</p>
 
       <div class="bg-white w-100 my-4 py-4">
+        <p class="alert text-center text-danger"><%= alert %></p>
         <%= form_with model: @member, url: session_path(resource_name) do |f| %>
         <table class="table table-borderless mb-1">
           <tr>

@@ -4,8 +4,6 @@
     <div class="col-md-12">
       <h3 class="ml-5 my-5">ジャンル編集</h3>
 
-      <%= flash[:notice] %>
-
       <div class="form-group">
         <%= form_with model: @genre, url:admin_genre_path, method: :patch do |f| %>
           <%= f.label "ジャンル名" %>
