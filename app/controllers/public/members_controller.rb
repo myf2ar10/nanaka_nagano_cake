@@ -17,8 +17,6 @@ class Public::MembersController < ApplicationController
     else
       @member = current_member
       flash[:notice] = "会員情報の変更に失敗しました"
-      # 以下、redirect_toに変更しました。編集失敗後にページをリロードするとrouting errorが出るためです。
-      # redirect_to members_information_edit_path
       render :edit
     end
   end
