@@ -1,45 +1,55 @@
-<div class="container-fluid">
-  <div class="row">
-    <div class="col-md-12 no-padding">
-      <header class="p-2">
+<header class="container-fluid">
+    <div class="row p-2">
 
-        <div class="d-flex justify-content-between align-items-center header-size">
-          <%= link_to root_path, class: "navbar-brand text-dark" do %>
-            <%= image_tag "LOGO.png", size: "80x80" %>
-          <% end %>
+      <!--12col-->
+      <div class="col-md-2 offset-md-1">
+      <%= link_to root_path, class: "navbar-brand" do %>
+        <%= image_tag "LOGO.png", size: "80x80" %>
+      <% end %>
+      </div>
 
-          <% if admin_signed_in? %>
+      <% if admin_signed_in? %>
+
+        <div class="d-flex flex-column col-md-6 offset-md-2">
           <div>
-            <nav class="mb-2">
+            <nav class="mb-2 float-right">
               <ul class="navbar-nav list-group-horizontal">
                 <li class="nav-item"><%= link_to "商品一覧", admin_items_path, class: "btn text-secondary mr-3" %></li>
                 <li class="nav-item"><%= link_to "会員一覧", admin_members_path, class: "btn text-secondary mr-3" %></li>
                 <li class="nav-item"><%= link_to "注文履歴一覧", admin_root_path, class: "btn text-secondary mr-3" %></li>
                 <li class="nav-item"><%= link_to "ジャンル一覧", admin_genres_path, class: "btn text-secondary mr-3" %></li>
                 <li class="nav-item"><%= link_to "ログアウト", destroy_admin_session_path, method: :delete, class: "btn text-secondary mr-3" %></li>
-              </ul>
             </nav>
-            <%= render "admin/shared/search" %>
-          <% else %>
-
+          </div>
           <div>
-            <nav class="mb-2">
-              <ul class="navbar-nav list-group-horizontal">
-                <li class="nav-item"><%= link_to "About", about_path, class: "btn text-secondary mr-3" %></li>
-                <li class="nav-item"><%= link_to "商品一覧", items_path, class: "btn text-secondary mr-3" %></li>
-                <li class="nav-item"><%= link_to "新規登録", new_member_registration_path, class: "btn text-secondary mr-3" %></li>
-                <li class="nav-item"><%= link_to "ログイン", new_member_session_path, class: "btn text-secondary mr-3", 'data-turbolinks': false %></li>
-              </ul>
-            </nav>
-
-            <%= render "public/shared/search" %>
-          <% end %>
-
+          <%= render "public/shared/search" %>
+          </div>
         </div>
-      </header>
-    </div>
-  </div>
-</div>
+
+      <% else %>
+
+        <div class="d-flex flex-column col-md-6 offset-md-2">
+          <div>
+          <nav class="mb-2 float-right">
+            <ul class="navbar-nav list-group-horizontal">
+              <li class="nav-item"><%= link_to "About", about_path, class: "btn text-secondary mr-3" %></li>
+              <li class="nav-item"><%= link_to "商品一覧", items_path, class: "btn text-secondary mr-3" %></li>
+              <li class="nav-item"><%= link_to "新規登録", new_member_registration_path, class: "btn text-secondary mr-3" %></li>
+              <li class="nav-item"><%= link_to "ログイン", new_member_session_path, class: "btn text-secondary mr-3", 'data-turbolinks': false %></li>
+            </ul>
+          </nav>
+          </div>
+          <div>
+          <%= render "public/shared/search" %>
+          </div>
+        </div>
+      <% end %>
+
+    <div class="offset-md-1"></div>
+
+    <!--12col-->
+
+</header>
 
 <% unless flash[:notice].blank? %>
   <div class="text-center mt-2">
