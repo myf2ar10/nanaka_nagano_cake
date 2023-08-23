@@ -208,7 +208,7 @@ ja:
     ja:
   activerecord:
     attributes:
-      user:
+      member:
         confirmation_sent_at: パスワード確認送信時刻
         confirmation_token: パスワード確認用トークン
         confirmed_at: パスワード確認時刻
@@ -232,8 +232,15 @@ ja:
         unconfirmed_email: 未確認Eメール
         unlock_token: ロック解除用トークン
         updated_at: 更新日
+        family_name: お名前（姓）
+        first_name: お名前（名）
+        family_name_kana: フリガナ（姓）
+        first_name_kana: フリガナ（名）
+        post_code: 郵便番号
+        address: 住所
+        telephone_number: 電話番号
     models:
-      user: ユーザー
+      member: お客様情報
   devise:
     confirmations:
       confirmed: メールアドレスが確認できました。
