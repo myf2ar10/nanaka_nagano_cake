@@ -13,11 +13,13 @@ class Admin::OrderDetailsController < ApplicationController
         @order.update(status: "preparing")
       end
 
+      flash[:notice] = "製作ステータスを更新しました"
       redirect_back(fallback_location: root_path)
     else
       @order = Order.find(params[:id])
       @order_details = OrderDetail.where(order_id: @order.id)
       render "orders/show"
+      flash[:notice] = "製作ステータスの更新に失敗しました"
     end
 
   end

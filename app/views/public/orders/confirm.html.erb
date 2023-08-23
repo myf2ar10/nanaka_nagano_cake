@@ -17,7 +17,7 @@
       <% @cart_items.each do |cart_item| %>
         <tr>
           <td>
-            <%= image_tag cart_item.item.image, size: "100x75", class: "mr-1" %>
+            <%= image_tag cart_item.item.image, size: "100x75", class: "mr-1 object-fit-cover" %>
             <%= cart_item.item.name %>
           </td>
           <td><%= cart_item.item.add_tax_price.to_s(:delimited) %>円</td>
@@ -57,7 +57,7 @@
 
     <div  class="shipping-address d-flex mb-3">
       <h5 class="mr-5">お届け先</h5>
-      <%= @selected_address %>
+      〒<%= @selected_address %>
     </div>
 
     <div class="text-center mb-4">

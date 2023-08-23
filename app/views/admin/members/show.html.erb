@@ -3,7 +3,7 @@
   <div class="row">
 
       <div class="col-md-12">
-        <h3 class="mb-3"><%= @member.family_name + @member.first_name %>さんの会員詳細</h3>
+        <h3 class="mb-3 mt-3 mb-4"><%= @member.family_name + @member.first_name %>さんの会員詳細</h3>
       </div>
 
 
@@ -81,7 +81,7 @@
         <p>会員ステータス</p>
       </div>
 
-      <div class="col-md-6">
+      <div class="col-md-6 mb-3">
         <% if @member.is_deleted == true %>
               <p class="text-secondary"><strong>退会</strong></p>
             <% else %>
@@ -95,11 +95,11 @@
         <%= link_to "編集する", edit_admin_member_path, class: "btn btn-success", "data-turbolinks": false %>
       </div>
 
-      <div class="col-md-2 offset-md-1">
+      <div class="col-md-3 offset-md-1">
         <%= link_to "注文履歴一覧を見る", individual_admin_order_path(@member), class: "btn btn-info" %>
       </div>
 
-      <div class="offset-md-9"></div>
+      <div class="offset-md-8"></div>
 
      <!--render 'admin/shared/footer.html.erb' -->
   </div>

@@ -28,12 +28,14 @@ class Public::OrdersController < ApplicationController
         selected = Address.find(params[:order][:registered_address_id])
         @selected_address = selected.post_code + " " + selected.address + " " + selected.name
       else
+        flash[:notice] = "お届け先を選択してください"
         render :new
       end
     when "new_address"
       unless params[:order][:new_post_code] == "" && params[:order][:new_address] == "" && params[:order][:new_name] == ""
         @selected_address = params[:order][:new_post_code] + " " + params[:order][:new_address] + " " + params[:order][:new_name]
       else
+        flash[:notice] = "お届け先を記入してください"
         render :new
       end
     end
@@ -79,15 +81,16 @@ class Public::OrdersController < ApplicationController
     end
 
     if @order.save
-      if @order.status == 1
-        @cart_items.each do |cart_item|
-          OrderDetail.create!(order_id: @order.id, item_id: cart_item.item.id, price: cart_item.item.add_tax_price, quantity: cart_item.quantity, making_status: 0)
-        end
-      else
-        @cart_items.each do |cart_item|
+      # if @order.status == 1
+        if @order.pay_method == "credit_card"
+          @cart_items.each do |cart_item|
           OrderDetail.create!(order_id: @order.id, item_id: cart_item.item.id, price: cart_item.item.add_tax_price, quantity: cart_item.quantity, making_status: 1)
+          end
+        else
+          @cart_items.each do |cart_item|
+          OrderDetail.create!(order_id: @order.id, item_id: cart_item.item.id, price: cart_item.item.add_tax_price, quantity: cart_item.quantity, making_status: 0)
+          end
         end
-      end
       @cart_items.destroy_all
       redirect_to complete_orders_path
     else

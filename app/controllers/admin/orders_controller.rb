@@ -21,10 +21,12 @@ class Admin::OrdersController < ApplicationController
           order_detail.update(making_status: "not_available")
         end
       end
+      flash[:notice] = "注文ステータスを更新しました"
       redirect_back(fallback_location: root_path)
     else
       @order = Order.find(params[:id])
       @order_details = OrderDetail.where(order_id: order.id)
+      flash[:notice] = "注文ステータスの更新に失敗しました"
       render :show
     end
 
@@ -38,10 +40,10 @@ class Admin::OrdersController < ApplicationController
     #   render "orders/show"
     # end
   end
-  
+
   def individual
     @member = Member.find(params[:id])
-    @orders = @member.orders.page(params[:page])
+    @orders = @member.orders.order(created_at: :desc).page(params[:page])
   end
 
   private
