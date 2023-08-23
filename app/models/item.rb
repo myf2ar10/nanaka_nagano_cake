@@ -17,4 +17,5 @@ class Item < ApplicationRecord
   def self.looks(search, word)
     @item = Item.where("name LIKE?","%#{word}%")
   end
+  
 end

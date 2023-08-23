@@ -7,7 +7,7 @@ class Member < ApplicationRecord
   has_many :addresses, dependent: :destroy
   has_many :cart_items, dependent: :destroy
   has_many :orders, dependent: :destroy
-  
+
   validates :family_name,       presence: true
   validates :family_name_kana,  presence: true
   validates :first_name,        presence: true
