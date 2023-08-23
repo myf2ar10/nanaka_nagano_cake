@@ -53,14 +53,8 @@ class Public::OrdersController < ApplicationController
     end
     @cart_items_price = ary.sum
     @order.total_price = @order.shipping_fee + @cart_items_price
-
     @order.pay_method = params[:order][:pay_method]
-
-    if @order.pay_method == "credit_card"
-      @order.status = 1
-    else
-      @order.status = 0
-    end
+    @order.status = 0
 
     address_type = params[:order][:address_type]
     case address_type
@@ -81,19 +75,13 @@ class Public::OrdersController < ApplicationController
     end
 
     if @order.save
-      # if @order.status == 1
-        if @order.pay_method == "credit_card"
-          @cart_items.each do |cart_item|
-          OrderDetail.create!(order_id: @order.id, item_id: cart_item.item.id, price: cart_item.item.add_tax_price, quantity: cart_item.quantity, making_status: 1)
-          end
-        else
-          @cart_items.each do |cart_item|
-          OrderDetail.create!(order_id: @order.id, item_id: cart_item.item.id, price: cart_item.item.add_tax_price, quantity: cart_item.quantity, making_status: 0)
-          end
-        end
+      @cart_items.each do |cart_item|
+      OrderDetail.create!(order_id: @order.id, item_id: cart_item.item.id, price: cart_item.item.add_tax_price, quantity: cart_item.quantity, making_status: 0)
+      end
       @cart_items.destroy_all
       redirect_to complete_orders_path
     else
+      flasj[:notice] = "注文が確定できませんでした。もう一度やり直してください。"
       render :items
     end
   end
