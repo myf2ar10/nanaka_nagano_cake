@@ -19,7 +19,7 @@
               <div class="each-item mr-4 mt-4">
                 <div>
                   <%= link_to item_path(item) do %>
-                    <%= image_tag item.image, size: "180x135" %>
+                    <%= image_tag item.image, size: "180x135", class: "object-fit-cover" %>
                   <% end %>
                 </div>
                 <div>

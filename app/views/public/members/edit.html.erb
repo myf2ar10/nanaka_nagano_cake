@@ -3,7 +3,7 @@
   <div class="row">
     <%= render "public/shared/error_messages", resource: @member %>
 
-      <div class="col-md-12">
+      <div class="col-md-12 mb-3 mt-3">
         <h3>会員情報編集</h3>
       </div>
 
@@ -13,11 +13,11 @@
 
       <div class="col-md-2">
           <%= form_with model:@member, url: members_information_path, method: :patch do |f| %>
-        <p><%= f.text_field :family_name %></p>
+        <p><%= f.text_field :family_name, class: "form-control" %></p>
       </div>
 
       <div class="col-md-2">
-        <p><%= f.text_field :first_name %></p>
+        <p><%= f.text_field :first_name, class: "form-control" %></p>
       </div>
 
       <div class="offset-md-6"></div>
@@ -27,11 +27,11 @@
       </div>
 
       <div class="col-md-2">
-        <p><%= f.text_field :family_name_kana %></p>
+        <p><%= f.text_field :family_name_kana, class: "form-control" %></p>
       </div>
 
       <div class="col-md-2">
-        <p><%= f.text_field :first_name_kana %></p>
+        <p><%= f.text_field :first_name_kana, class: "form-control" %></p>
       </div>
 
       <div class="offset-md-6"></div>
@@ -41,7 +41,7 @@
       </div>
 
       <div class="col-md-2">
-        <p><%= f.text_field :post_code %></p>
+        <p><%= f.text_field :post_code, class: "form-control" %></p>
       </div>
 
       <div class="offset-md-8"></div>
@@ -51,7 +51,7 @@
       </div>
 
       <div class="col-md-4">
-        <p><%= f.text_area :address, rows: 1, class: "w-100"%></p>
+        <p><%= f.text_area :address, rows: 1, class: "w-100 form-control"%></p>
       </div>
 
       <div class="offset-md-6"></div>
@@ -61,7 +61,7 @@
       </div>
 
       <div class="col-md-2">
-        <p><%= f.text_field :telephone_number%></p>
+        <p><%= f.text_field :telephone_number, class: "form-control" %></p>
       </div>
 
       <div class="offset-md-8"></div>
@@ -70,11 +70,11 @@
         <p>メールアドレス</p>
       </div>
 
-      <div class="col-md-2">
-        <p><%= f.email_field :email %></p>
+      <div class="col-md-4">
+        <p><%= f.email_field :email, class: "w-100 form-control" %></p>
       </div>
 
-      <div class="offset-md-8"></div>
+      <div class="offset-md-6"></div>
 
       <div class="col-md-4 offset-md-2">
         <div class="actions">

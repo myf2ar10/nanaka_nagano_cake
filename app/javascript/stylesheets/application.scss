@@ -69,3 +69,13 @@ footer {
   min-height: 70vh;
 }
 
+// 商品画像の縦横比を固定
+.object-fit-cover {
+  object-fit: cover;
+}
+
+//会員ログインページ、新規登録ページ
+
+.necessary-field {
+  background-color: #F17070;
+}
