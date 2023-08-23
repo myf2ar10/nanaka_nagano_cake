@@ -1,54 +1,66 @@
 <header class="container-fluid">
     <div class="row p-2">
 
-      <!--12col-->
-      <div class="col-md-2 offset-md-1">
-      <%= link_to root_path, class: "navbar-brand" do %>
-        <%= image_tag "LOGO.png", size: "80x80" %>
-      <% end %>
-      </div>
+    <!--12col-->
+    <div class="col-lg-2 offset-lg-1 col-md-2 offset-md-1 flex-for-less-than-md col-sm-2 offset-sm-2 col-6">
+    <%= link_to root_path, class: "navbar-brand" do %>
+      <%= image_tag "LOGO.png", size: "80x80" %>
+    <% end %>
+    </div>
 
-      <% if admin_signed_in? %>
+    <% if admin_signed_in? %>
 
-        <div class="d-flex flex-column col-md-6 offset-md-2">
-          <div>
-            <nav class="mb-2 float-right">
-              <ul class="navbar-nav list-group-horizontal">
+      <div class="flex-for-more-md col-lg-7 offset-lg-1 col-md-2 offset-md-7 col-sm-2 offset-sm-5 col-6">
+        <div>
+          <nav class="mb-2 float-right navbar navbar-expand-lg navbar-dark">
+            <button class="navbar-toggler mt-3" type="button" data-toggle="collapse" data-target="#navbarDropdown" aria-controls="navbarDropdown" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarDropdown">
+              <ul class="navbar-nav horizontal-for-more-than-md">
                 <li class="nav-item"><%= link_to "商品一覧", admin_items_path, class: "btn text-secondary mr-3" %></li>
                 <li class="nav-item"><%= link_to "会員一覧", admin_members_path, class: "btn text-secondary mr-3" %></li>
                 <li class="nav-item"><%= link_to "注文履歴一覧", admin_root_path, class: "btn text-secondary mr-3" %></li>
                 <li class="nav-item"><%= link_to "ジャンル一覧", admin_genres_path, class: "btn text-secondary mr-3" %></li>
                 <li class="nav-item"><%= link_to "ログアウト", destroy_admin_session_path, method: :delete, class: "btn text-secondary mr-3" %></li>
-            </nav>
-          </div>
-          <div>
-          <%= render "public/shared/search" %>
-          </div>
+                <li class="search-box-for-responsive"><%= render "admin/shared/search" %></li>
+              </ul>
+            </div>
+          </nav>
         </div>
+        <div class="search-box-for-more-md">
+          <%= render "admin/shared/search" %>
+        </div>
+      </div>
 
-      <% else %>
+    <% else %>
 
-        <div class="d-flex flex-column col-md-6 offset-md-2">
-          <div>
-          <nav class="mb-2 float-right">
-            <ul class="navbar-nav list-group-horizontal">
+      <div class="flex-for-more-md col-lg-6 offset-lg-2 col-md-2 offset-md-7 col-sm-2 offset-sm-5 col-6">
+        <div>
+        <nav class="mb-2 float-right navbar navbar-expand-lg navbar-dark">
+          <button class="navbar-toggler mt-3" type="button" data-toggle="collapse" data-target="#navbarDropdown" aria-controls="navbarDropdown" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarDropdown">
+            <ul class="navbar-nav horizontal-for-more-than-md">
               <li class="nav-item"><%= link_to "About", about_path, class: "btn text-secondary mr-3" %></li>
               <li class="nav-item"><%= link_to "商品一覧", items_path, class: "btn text-secondary mr-3" %></li>
               <li class="nav-item"><%= link_to "新規登録", new_member_registration_path, class: "btn text-secondary mr-3" %></li>
               <li class="nav-item"><%= link_to "ログイン", new_member_session_path, class: "btn text-secondary mr-3", 'data-turbolinks': false %></li>
+              <li class="search-box-for-responsive"><%= render "admin/shared/search" %></li>
             </ul>
-          </nav>
           </div>
-          <div>
-          <%= render "public/shared/search" %>
-          </div>
+        </nav>
         </div>
-      <% end %>
+        <div class="search-box-for-more-md">
+          <%= render "admin/shared/search" %>
+        </div>
+      </div>
+    <% end %>
 
-    <div class="offset-md-1"></div>
+    <div class="offset-lg-1"></div>
 
     <!--12col-->
-
 </header>
 
 <% unless flash[:notice].blank? %>
