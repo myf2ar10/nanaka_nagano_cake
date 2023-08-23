@@ -111,15 +111,21 @@ footer {
     margin-right: 0.25rem;   /* アイテム間のスペースを確保 */
     margin-bottom: 0;        /* 縦のマージンをリセット */
   }
+
+  // footer
+  .pull-right-more-lg {
+    text-align: right;
+  }
+
 }
 
 
 @media screen and (max-width:991px) {
   // header
-  .search-box-for-more-md{
+  .search-box-for-more-than-md{
     display: none;
   }
-  .flex-for-less-than-md {
+  .flex-for-until-md {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -127,11 +133,17 @@ footer {
   .flex-for-xs{
     display: flex;
   }
+
+  // footer
+  .put-center-until-lg {
+    text-align: center;
+  }
+
 }
 
 @media screen and (min-width:768px) {
 // public/top
-  .flex-for-more-md-top{
+  .flex-for-more-than-md-top{
     display: flex;
   }
 }
