@@ -5,7 +5,7 @@
         <h3 class="mb-5 mt-3">注文履歴詳細</h3>
       </div>
 
-      <div class="order-details"></div>
+      <div class="order-details col-12">
         <div class="col-md-2">
           <div>購入者</div>
         </div>
@@ -42,12 +42,14 @@
         </div>
         <div class="offset-md-8"></div>
 
-        <div class="col-md-2 mb-5 mt-1">
+        <!--<div class="col-md-2 mb-5 mt-1">-->
+        <div class="col-md-2">
           <div>注文ステータス</div>
         </div>
         <div class="col-md-2">
           <div class="d-flex mt-1 align-items-center">
-            <div class="mr-3 mb-0">
+            <!--<div class="mr-3 mb-0">-->
+            <div class="mr-3">
             <%= form_with model: @order, url: admin_order_path do |f| %>
              <%= f.select :status, Order.statuses.keys.map { |k| [I18n.t("enums.order.status.#{k}"), k]}, class: 'from-control' %>
              </div>
@@ -58,9 +60,11 @@
           </div>
         </div>
         <div class="offset-md-8"></div>
+      </div>
 
-    <div class="d-flex align-items-end col-md-12">
-    <div class="col-md-8">
+    <!--<div class="d-flex align-items-end col-md-12">-->
+    <!--<div class="col-md-8">-->
+    <div class="col-12 col-lg-8 mt-3">
         <table class="table">
           <thead class="table-secondary">
             <th>商品名</th>
@@ -92,7 +96,8 @@
       </div>
 
 
-      <div class="col-md-3 offset-md-1">
+      <!--<div class="col-md-3 offset-md-1">-->
+      <div class="col-12 col-lg-4">
         <table>
           <tr>
             <td><h5>商品合計</h5></td>

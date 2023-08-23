@@ -1,16 +1,14 @@
 <header class="container-fluid">
     <div class="row p-2">
 
-    <!--12col-->
-    <div class="col-lg-2 offset-lg-1 col-md-2 offset-md-1 flex-for-less-than-md col-sm-2 offset-sm-2 col-6">
+    <div class="col-lg-2 offset-lg-1 col-md-2 offset-md-1 flex-for-until-md col-sm-2 offset-sm-2 col-6">
     <%= link_to root_path, class: "navbar-brand" do %>
       <%= image_tag "LOGO.png", size: "80x80" %>
     <% end %>
     </div>
 
     <% if member_signed_in? %>
-
-      <div class="flex-for-more-md col-lg-6 offset-lg-2 col-md-2 offset-md-7 col-sm-2 offset-sm-5 col-6">
+      <div class="flex-for-more-md col-lg-7 offset-lg-1 col-md-2 offset-md-7 col-sm-2 offset-sm-5 col-6">
         <div>
           <nav class="mb-2 float-right navbar navbar-expand-lg navbar-dark">
             <button class="navbar-toggler mt-3" type="button" data-toggle="collapse" data-target="#navbarDropdown" aria-controls="navbarDropdown" aria-expanded="false" aria-label="Toggle navigation">
@@ -27,13 +25,12 @@
             </div>
           </nav>
         </div>
-        <div class="search-box-for-more-md">
+        <div class="search-box-for-more-than-md">
           <%= render "public/shared/search" %>
         </div>
       </div>
 
     <% else %>
-
       <div class="flex-for-more-md col-lg-6 offset-lg-2 col-md-2 offset-md-7 col-sm-2 offset-sm-5 col-6">
         <div>
         <nav class="mb-2 float-right navbar navbar-expand-lg navbar-dark">
@@ -51,7 +48,7 @@
           </div>
         </nav>
         </div>
-        <div class="search-box-for-more-md">
+        <div class="search-box-for-more-than-md">
           <%= render "public/shared/search" %>
         </div>
       </div>
@@ -59,7 +56,6 @@
 
     <div class="offset-lg-1"></div>
 
-    <!--12col-->
 </header>
 
 <% unless flash[:notice].blank? %>

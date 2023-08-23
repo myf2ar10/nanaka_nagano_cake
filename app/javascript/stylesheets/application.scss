@@ -62,7 +62,7 @@ header {
 footer {
   background-color: #5C574B;
   width: 100%;
-  height: 200px;
+  min-height: 200px;
   margin-top:auto;
 }
 
@@ -90,9 +90,9 @@ footer {
 
 // 以下、レスポンシブ対応
 
-// header
-
 @media screen and (min-width:992px) {
+
+  // header
   .search-box-for-responsive{
     display: none;
   }
@@ -111,14 +111,21 @@ footer {
     margin-right: 0.25rem;   /* アイテム間のスペースを確保 */
     margin-bottom: 0;        /* 縦のマージンをリセット */
   }
+
+  // footer
+  .pull-right-more-lg {
+    text-align: right;
+  }
+
 }
 
 
 @media screen and (max-width:991px) {
-  .search-box-for-more-md{
+  // header
+  .search-box-for-more-than-md{
     display: none;
   }
-  .flex-for-less-than-md {
+  .flex-for-until-md {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -126,15 +133,17 @@ footer {
   .flex-for-xs{
     display: flex;
   }
+
+  // footer
+  .put-center-until-lg {
+    text-align: center;
+  }
+
 }
 
-@media screen and (max-width:991px) {
-  .search-box-for-more-md{
-    display: none;
-  }
-  .flex-for-less-than-md {
+@media screen and (min-width:768px) {
+// public/top
+  .flex-for-more-than-md-top{
     display: flex;
-    justify-content: space-between;
-    align-items: center;
   }
 }
