@@ -43,7 +43,7 @@ class Admin::OrdersController < ApplicationController
 
   def individual
     @member = Member.find(params[:id])
-    @orders = @member.orders.page(params[:page])
+    @orders = @member.orders.order(created_at: :desc).page(params[:page])
   end
 
   private
