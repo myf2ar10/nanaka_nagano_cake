@@ -2,7 +2,6 @@
     <div class="row p-2">
 
     <!--12col-->
-    <!--<div class="flex-for-xs">-->
     <div class="col-lg-2 offset-lg-1 col-md-2 offset-md-1 flex-for-less-than-md col-sm-2 offset-sm-2 col-6">
     <%= link_to root_path, class: "navbar-brand" do %>
       <%= image_tag "LOGO.png", size: "80x80" %>
@@ -11,26 +10,30 @@
 
     <% if member_signed_in? %>
 
-      <div class="d-flex flex-column col-lg-6 offset-lg-2">
+      <div class="flex-for-more-md col-lg-6 offset-lg-2 col-md-2 offset-md-7 col-sm-2 offset-sm-5 col-6">
         <div>
-          <nav class="mb-2 float-right">
-            <ul class="navbar-nav list-group-horizontal">
-              <li class="nav-item"><%= link_to "マイページ", members_mypage_path, class: "btn text-secondary mr-3" %></li>
-              <li class="nav-item"><%= link_to "商品一覧", items_path, class: "btn text-secondary mr-3" %></li>
-              <li class="nav-item"><%= link_to "カート", cart_items_path, class: "btn text-secondary mr-3" %></li>
-              <li class="nav-item"><%= link_to "ログアウト", destroy_member_session_path, method: :delete, class: "btn text-secondary mr-3" %></li>
-            </ul>
+          <nav class="mb-2 float-right navbar navbar-expand-lg navbar-dark">
+            <button class="navbar-toggler mt-3" type="button" data-toggle="collapse" data-target="#navbarDropdown" aria-controls="navbarDropdown" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarDropdown">
+              <ul class="navbar-nav horizontal-for-more-than-md">
+                <li class="nav-item"><%= link_to "マイページ", members_mypage_path, class: "btn text-secondary mr-3" %></li>
+                <li class="nav-item"><%= link_to "商品一覧", items_path, class: "btn text-secondary mr-3" %></li>
+                <li class="nav-item"><%= link_to "カート", cart_items_path, class: "btn text-secondary mr-3" %></li>
+                <li class="nav-item"><%= link_to "ログアウト", destroy_member_session_path, method: :delete, class: "btn text-secondary mr-3" %></li>
+                <li class="search-box-for-responsive"><%= render "public/shared/search" %></li>
+              </ul>
+            </div>
           </nav>
         </div>
-        <div>
-        <%= render "public/shared/search" %>
+        <div class="search-box-for-more-md">
+          <%= render "public/shared/search" %>
         </div>
       </div>
-    <!--</div>-->
 
     <% else %>
 
-      <!--<div class="d-flex flex-column col-lg-6 offset-lg-2 col-md-9">-->
       <div class="flex-for-more-md col-lg-6 offset-lg-2 col-md-2 offset-md-7 col-sm-2 offset-sm-5 col-6">
         <div>
         <nav class="mb-2 float-right navbar navbar-expand-lg navbar-dark">
@@ -48,12 +51,10 @@
           </div>
         </nav>
         </div>
-        <!--<div class="collapse navbar-collapse" id="navbarDropdown">-->
         <div class="search-box-for-more-md">
-        <%= render "public/shared/search" %>
+          <%= render "public/shared/search" %>
         </div>
       </div>
-      <!--</div>-->
     <% end %>
 
     <div class="offset-lg-1"></div>
