@@ -1,44 +1,127 @@
 @media screen and (max-width:768px) {
-   /*header*/
-  /* .nav-list{*/
-  /*   width: 100%;*/
-  /* }*/
-  /*h3 {*/
-  /*  font-size: 12px;*/
-  /*}*/
-  /*.search-box-for-more-than-md{*/
-  /*  display: none;*/
-  /*}*/
-  /*.flex-for-until-md {*/
-  /*  display: flex;*/
-  /*  justify-content: space-between;*/
-  /*  align-items: center;*/
-  /*}*/
-  /*.flex-for-xs{*/
-  /*  display: flex;*/
-  /*}*/
+  .title{
+    font-size:      24px;
+  }
+  body{
+    font-size:      14px;
+  }
+  .btn{
+    font-size:      14px;
+  }
+  .main-box{
+    width:          100%;
+    display:        block;
+    margin-right:   0;
+    margin-left:    0;
+    padding-right:  0;
+    padding-left:   0;
 
-  /* footer*/
-  /*.put-center-until-lg {*/
-  /*  text-align: center;*/
-  /*}*/
-
+  }
+  .box{
+    width:          100%;
+    display:        block;
+    margin-right:   auto;
+    margin-left:    auto;
+  }
+  .col-3{
+    max-width:      90%;
+    padding:        0px;
+  }
+  .col-4{
+    max-width:      90%;
+    padding:        0px;
+  }
+  .right{
+    text-align: right;
+  }
+  .col-6{
+    max-width:      90%;
+    padding:        0px;
+  }
+  .row{
+    display:        inline-block;
+    width:          100%;
+    margin-right:   auto;
+    margin-left:    auto;
+  }
+  .table{
+    margin:         auto;
+  }
+  .table th, .table td {
+    padding:        0 3px;
+    vertical-align: middle;
+    text-align: center;
+  }
+  .table th{
+    white-space:    nowrap;
+    margin-right:   3px;
+    margin-left:    3px;
+  }
+  .nowarp{
+    white-space:    nowrap;
+  }
 }
 
 @media screen and (max-width:480px) {
-  /*.main-box{*/
-  /*  width: 100%;*/
-  /*  display: none;*/
-  /*}*/
-  /*.box{*/
-  /*  width: 90%;*/
-  /*  display: flex;*/
-  /*}*/
-  /*h3 {*/
-  /*  font-size: 12px;*/
-  /*}*/
+  .title{
+    font-size:      24px;
+  }
+  body{
+    font-size:      14px;
+  }
+  .btn{
+    font-size:      14px;
+  }
+  .main-box{
+    width:          100%;
+    display:        block;
+    margin-right:   0;
+    margin-left:    0;
+    padding-right:  0;
+    padding-left:   0;
 
-  /*.flex-for-more-than-md-top{*/
-  /*  display: flex;*/
-  /*}*/
+  }
+  .box{
+    width:          100%;
+    display:        block;
+    margin-right:   auto;
+    margin-left:    auto;
+  }
+  .col-3{
+    max-width:      90%;
+    padding:        0px;
+  }
+  .col-4{
+    max-width:      90%;
+    padding:        0px;
+  }
+  .right{
+    text-align: right;
+  }
+  .col-6{
+    max-width:      90%;
+    padding:        0px;
+  }
+  .row{
+    display:        inline-block;
+    width:          100%;
+    margin-right:   auto;
+    margin-left:    auto;
+  }
+  .table{
+    margin:         auto;
+  }
+  .table th, .table td {
+    padding:        0 3px;
+    vertical-align: middle;
+    text-align: center;
+  }
+  .table th{
+    white-space:    nowrap;
+    margin-right:   3px;
+    margin-left:    3px;
+  }
+  .nowarp{
+    white-space:    nowrap;
+  }
 }
