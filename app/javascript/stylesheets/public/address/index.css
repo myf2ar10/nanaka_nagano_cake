@@ -1,0 +1,121 @@
+@media screen and (max-width:768px) {
+  .address-title{
+    font-size:      24px;
+  }
+  .address-btn{
+    font-size:      14px;
+    max-width:      90%;
+    padding:        0px;
+  }
+  .address-main-box{
+    width:          100%;
+    display:        block;
+    margin-right:   0;
+    margin-left:    0;
+    padding-right:  0;
+    padding-left:   0;
+  }
+  .address-container{
+    width:          100%;
+    display:        block;
+    margin-right:   auto;
+    margin-left:    auto;
+  }
+  .address-btn-right{
+    text-align: right;
+  }
+  .address-from{
+    max-width:      90%;
+    padding:        0px;
+  }
+  .address-label{
+    display:        block;
+    max-width:      100%;
+    padding:        0px;
+  }
+  .address-box{
+    display:        block;
+    max-width:      100%;
+    padding:        0px;
+    width:          100%;
+    margin-right:   auto;
+    margin-left:    auto;
+  }
+  .address-table{
+    margin:         auto;
+  }
+  .address-table th, .address-table td {
+    padding:        0 3px;
+    vertical-align: middle;
+    text-align:     center;
+  }
+  .address-table th{
+    white-space:    nowrap;
+    margin-right:   3px;
+    margin-left:    3px;
+  }
+  .address-name{
+    white-space:    nowrap;
+  }
+}
+
+@media screen and (max-width:576px) {
+  .address-title{
+    font-size:      24px;
+  }
+  .address-btn{
+    font-size:      14px;
+    max-width:      90%;
+    padding:        0px;
+  }
+  .address-main-box{
+    width:          100%;
+    display:        block;
+    margin-right:   0;
+    margin-left:    0;
+    padding-right:  0;
+    padding-left:   0;
+  }
+  .address-container{
+    width:          100%;
+    display:        block;
+    margin-right:   auto;
+    margin-left:    auto;
+  }
+  .address-btn-right{
+    text-align: right;
+  }
+  .address-from{
+    max-width:      90%;
+    padding:        0px;
+  }
+  .address-label{
+    display:        block;
+    max-width:      100%;
+    padding:        0px;
+  }
+  .address-box{
+    display:        block;
+    max-width:      100%;
+    padding:        0px;
+    width:          100%;
+    margin-right:   auto;
+    margin-left:    auto;
+  }
+  .address-table{
+    margin:         auto;
+  }
+  .address-table th, .address-table td {
+    padding:        0 3px;
+    vertical-align: middle;
+    text-align:     center;
+  }
+  .address-table th{
+    white-space:    nowrap;
+    margin-right:   3px;
+    margin-left:    3px;
+  }
+  .address-name{
+    white-space:    nowrap;
+  }
+}
