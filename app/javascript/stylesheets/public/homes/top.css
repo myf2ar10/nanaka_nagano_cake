@@ -26,3 +26,6 @@
   object-fit: cover;
 }
 
+body {
+  background-image: url(../../../images/background.jpg);
+}
