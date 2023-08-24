@@ -2,106 +2,87 @@
 <div class="container p-3">
   <div class="row">
 
-      <div class="col-md-12">
-        <h3 class="mb-3 mt-3 mb-4"><%= @member.family_name + @member.first_name %>さんの会員詳細</h3>
-      </div>
+    <div class="col-10 offset-1 mb-3">
+      <h3 class="mb-3 mt-3 mb-4"><%= @member.family_name + @member.first_name %>さんの会員詳細</h3>
+    </div>
 
+    <div class="col-3 offset-2">
+      <p>会員ID</p>
+    </div>
 
-      <div class="col-md-2">
-        <p>会員ID</p>
-      </div>
+    <div class="col-7">
+      <p><%= @member.id %></p>
+    </div>
 
-      <div class="col-md-6">
-        <p><%= @member.id %></p>
-      </div>
+    <div class="col-3 offset-2">
+      <p>氏名</p>
+    </div>
 
-      <div class="offset-md-4"></div>
+    <div class="col-7">
+      <p><%= @member.family_name + "　" + @member.first_name %></p>
+    </div>
 
-      <div class="col-md-2">
-        <p>氏名</p>
-      </div>
+    <div class="col-3 offset-2">
+      <p>フリガナ</p>
+    </div>
 
-      <div class="col-md-6">
-        <p><%= @member.family_name + "　" + @member.first_name %></p>
-      </div>
+    <div class="col-7">
+      <p><%= @member.family_name_kana + "　" + @member.first_name_kana %></p>
+    </div>
 
-      <div class="offset-md-4"></div>
+    <div class="col-3 offset-2">
+      <p>郵便番号</p>
+    </div>
 
-      <div class="col-md-2">
-        <p>フリガナ</p>
-      </div>
+    <div class="col-7">
+      <p><%= @member.post_code %></p>
+    </div>
 
-      <div class="col-md-6">
-        <p><%= @member.family_name_kana + "　" + @member.first_name_kana %></p>
-      </div>
+    <div class="col-3 offset-2">
+      <p>住所</p>
+    </div>
 
-      <div class="offset-md-4"></div>
+    <div class="col-7">
+      <p><%= @member.address %></p>
+    </div>
 
-      <div class="col-md-2">
-        <p>郵便番号</p>
-      </div>
+    <div class="col-3 offset-2">
+      <p>電話番号</p>
+    </div>
 
-      <div class="col-md-6">
-        <p><%= @member.post_code %></p>
-      </div>
+    <div class="col-7">
+      <p><%= @member.telephone_number %></p>
+    </div>
 
-      <div class="offset-md-4"></div>
+    <div class="col-3 offset-2">
+      <p>メールアドレス</p>
+    </div>
 
-      <div class="col-md-2">
-        <p>住所</p>
-      </div>
+    <div class="col-7">
+      <p><%= @member.email %></p>
+    </div>
 
-      <div class="col-md-6">
-        <p><%= @member.address %></p>
-      </div>
+    <div class="col-3 offset-2">
+      <p>会員ステータス</p>
+    </div>
 
-      <div class="offset-md-4"></div>
+    <div class="col-7">
+      <% if @member.is_deleted == true %>
+        <p class="text-secondary"><strong>退会</strong></p>
+      <% else %>
+        <p class="text-success"><strong>有効</strong></p>
+      <% end %>
+    </div>
 
-      <div class="col-md-2">
-        <p>電話番号</p>
-      </div>
+    <div class="col-4 offset-2 mt-3">
+      <%= link_to "編集する", edit_admin_member_path, class: "btn btn-success", "data-turbolinks": false %>
+    </div>
 
-      <div class="col-md-6">
-        <p><%= @member.telephone_number %></p>
-      </div>
+    <div class="col-4 offset-1 mt-3">
+      <%= link_to "注文履歴一覧を見る", individual_admin_order_path(@member), class: "btn btn-info" %>
+    </div>
+    <div class="offset-1"></div>
 
-      <div class="offset-md-4"></div>
-
-      <div class="col-md-2">
-        <p>メールアドレス</p>
-      </div>
-
-      <div class="col-md-6">
-        <p><%= @member.email %></p>
-      </div>
-
-      <div class="offset-md-4"></div>
-
-      <div class="col-md-2">
-        <p>会員ステータス</p>
-      </div>
-
-      <div class="col-md-6 mb-3">
-        <% if @member.is_deleted == true %>
-              <p class="text-secondary"><strong>退会</strong></p>
-            <% else %>
-              <p class="text-success"><strong>有効</strong></p>
-            <% end %>
-      </div>
-
-      <div class="offset-md-4"></div>
-
-      <div class="col-md-2 offset-md-2">
-        <%= link_to "編集する", edit_admin_member_path, class: "btn btn-success", "data-turbolinks": false %>
-      </div>
-
-      <div class="col-md-3 offset-md-1">
-        <%= link_to "注文履歴一覧を見る", individual_admin_order_path(@member), class: "btn btn-info" %>
-      </div>
-
-      <div class="offset-md-8"></div>
-
-     <!--render 'admin/shared/footer.html.erb' -->
   </div>
 </div>
 

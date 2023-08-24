@@ -1,73 +1,72 @@
 <%= render 'public/shared/header.html.erb' %>
 <div class="container p-3">
   <div class="row">
-    <%#= render "public/shared/error_messages", resource: @member %>
 
       <div class="col-md-12 mb-3 mt-3">
         <h3>会員情報編集</h3>
       </div>
 
       <div class="col-md-2">
-        <p>氏名</p>
-      </div>
-
-      <div class="col-md-2">
-          <%= form_with model:@member, url: members_information_path, method: :patch do |f| %>
-          <%= f.text_field :family_name, class: "form-control" %>
-      </div>
-
-      <div class="col-md-2">
-        <%= f.text_field :first_name, class: "form-control" %>
-      </div>
-
-      <div class="offset-md-6"></div>
-
-      <div class="col-md-2">
-        <p>フリガナ</p>
-      </div>
-
-      <div class="col-md-2">
-        <%= f.text_field :family_name_kana, class: "form-control mt-1" %>
-      </div>
-
-      <div class="col-md-2">
-        <%= f.text_field :first_name_kana, class: "form-control mt-1" %>
-      </div>
-
-      <div class="offset-md-6"></div>
-
-      <div class="col-md-2">
-        <p>郵便番号</p>
-      </div>
-
-      <div class="col-md-2">
-        <%= f.text_field :post_code, class: "form-control mt-1" %>
-      </div>
-
-      <div class="offset-md-8"></div>
-
-      <div class="col-md-2">
-        <p>住所</p>
+        氏名
       </div>
 
       <div class="col-md-4">
-        <%= f.text_area :address, rows: 1, class: "w-100 form-control mt-1"%>
+          <%= form_with model:@member, url: members_information_path, method: :patch do |f| %>
+          <%= f.text_field :family_name, class: "form-control mt-1" %>
+      </div>
+
+      <div class="col-md-4">
+        <%= f.text_field :first_name, class: "form-control mt-1" %>
+      </div>
+
+      <div class="offset-md-2"></div>
+
+      <div class="col-md-2 mt-3">
+        フリガナ
+      </div>
+
+      <div class="col-md-4">
+        <%= f.text_field :family_name_kana, class: "form-control mt-1" %>
+      </div>
+
+      <div class="col-md-4">
+        <%= f.text_field :first_name_kana, class: "form-control mt-1" %>
+      </div>
+
+      <div class="offset-md-2"></div>
+
+      <div class="col-md-2 mt-3">
+        郵便番号
+      </div>
+
+      <div class="col-md-4">
+        <%= f.text_field :post_code, class: "form-control mt-1" %>
       </div>
 
       <div class="offset-md-6"></div>
 
-      <div class="col-md-2">
-        <p>電話番号</p>
+      <div class="col-md-2 mt-3">
+        住所
       </div>
 
-      <div class="col-md-2">
+      <div class="col-md-8">
+        <%= f.text_area :address, rows: 1, class: "w-100 form-control mt-1"%>
+      </div>
+
+      <div class="offset-md-2"></div>
+
+      <div class="col-md-2 mt-3">
+        電話番号
+      </div>
+
+      <div class="col-md-4">
         <%= f.text_field :telephone_number, class: "form-control mt-1" %>
       </div>
 
-      <div class="offset-md-8"></div>
+      <div class="offset-md-6"></div>
 
-      <div class="col-md-2">
-        <p>メールアドレス</p>
+      <div class="col-md-2 mt-3">
+        メールアドレス
       </div>
 
       <div class="col-md-4">
@@ -84,13 +83,13 @@
       </div>
 
 
-      <div class="col-md-2">
+      <div class="col-md-4">
         <div class="actions">
           <%= link_to "退会する", members_confirm_quit_path, class: "btn btn-danger mt-4" %>
         </div>
       </div>
 
-      <div class="offset-md-4"></div>
+      <div class="offset-md-2"></div>
   </div>
 </div>
 <%= render 'public/shared/footer.html.erb' %>
