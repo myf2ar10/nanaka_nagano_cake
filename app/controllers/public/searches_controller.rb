@@ -4,6 +4,7 @@ class Public::SearchesController < ApplicationController
     @genres = Genre.all
     @items = Item.looks(params[:search], params[:word]).page(params[:page]).per(8)
     @items_count = Item.looks(params[:search], params[:word]).count
+
   end
 
   def genre_items_search

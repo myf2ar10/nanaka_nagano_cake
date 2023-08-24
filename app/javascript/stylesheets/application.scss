@@ -1,6 +1,4 @@
 @use '~bootstrap/scss/bootstrap';
-
-
 @import url('https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@400;600&display=swap');
 
 *{
@@ -14,6 +12,7 @@
     padding-left: 0 !important;
     padding-right: 0 !important;
 }
+
 // ヘッダー
 
 header {
@@ -38,26 +37,7 @@ header {
   background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(108,117,125,1)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E");
 }
 
-// public/homes/top
-
-.main-visual {
-  display: inline-block;
-  background-color: rgba(0,0,0,0.6);
-  height: 100%;
-  width: 100%;
-  padding-top: 100px;
-}
-
-.main-visual-cover {
-  text-align: center;
-  background-image: url(../images/top-image.jpg);
-  background-position: 50% 50%;
-  background-size: cover;
-  height: 400px;
-  width: 80%;
-}
-
-// footer
+// フッター
 
 footer {
   background-color: #5C574B;
@@ -77,22 +57,9 @@ footer {
   min-height: 70vh;
 }
 
-// 商品画像の縦横比を固定
-.object-fit-cover {
-  object-fit: cover;
-}
-
-//会員ログインページ、新規登録ページ
-
-.necessary-field {
-  background-color: #F17070;
-}
-
 // 以下、レスポンシブ対応
-
 @media screen and (min-width:992px) {
-
-  // header
+  // ヘッダー
   .search-box-for-responsive{
     display: none;
   }
@@ -112,7 +79,7 @@ footer {
     margin-bottom: 0;        /* 縦のマージンをリセット */
   }
 
-  // footer
+  // フッター
   .pull-right-more-lg {
     text-align: right;
   }
@@ -121,7 +88,7 @@ footer {
 
 
 @media screen and (max-width:991px) {
-  // header
+  // ヘッダー
   .search-box-for-more-than-md{
     display: none;
   }
@@ -134,16 +101,24 @@ footer {
     display: flex;
   }
 
-  // footer
+  // フッター
   .put-center-until-lg {
     text-align: center;
   }
 
 }
 
-@media screen and (min-width:768px) {
-// public/top
-  .flex-for-more-than-md-top{
-    display: flex;
-  }
+/*ページネーションのデザイン*/
+.pagination>li>a {
+  color: #696969;   /*文字の色を変える*/
+}
+
+/* 表示しているページ番号のデザイン */
+.page-item.active .page-link {
+  background-color: #F17070;     /*背景の色を変える*/
+  border: none;
+}
+
+/*ホバー時のデザイン*/
+.pagination>li>a:hover {
 }

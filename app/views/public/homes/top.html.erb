@@ -15,8 +15,8 @@
     <%= render 'public/items/genre_search.html.erb' %>
   </div>
   <div class="col-12 col-md-9 col-lg-9">
-    <div class= "new-items-area text-center">
-      <h3 class="mb-3">新着商品</h3>
+    <div class= "new-items-area new-items-title">
+      <h3 class="mb-3 new-items-title-header">新着商品</h3>
       <div class="new-items flex-for-more-than-md-top flex-wrap ">
         <% @lastest_items.each do |item| %>
         <div class="new-item mr-2">
@@ -27,13 +27,13 @@
           </p>
           <p>
             <%= item.name %><br>
-            <%= item.price.to_s(:delimited) %>円
+            <%= item.add_tax_price.to_s(:delimited) %>円
           </p>
         </div>
         <% end %>
       </div>
       <div class="text-right">
-        <%= link_to items_path, class: "text-dark" do %>
+        <%= link_to items_path, class: "text-dark btn btn-light shadow-sm p-3 mb-5 bg-body rounded" do %>
           全ての商品を見る <i class="fas fa-caret-right fa-lg"></i>
         <% end %>
       </div>

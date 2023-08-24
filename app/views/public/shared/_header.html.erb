@@ -19,7 +19,7 @@
                 <li class="nav-item"><%= link_to "マイページ", members_mypage_path, class: "btn text-secondary mr-3" %></li>
                 <li class="nav-item"><%= link_to "商品一覧", items_path, class: "btn text-secondary mr-3" %></li>
                 <li class="nav-item"><%= link_to "カート", cart_items_path, class: "btn text-secondary mr-3" %></li>
-                <li class="nav-item"><%= link_to "ログアウト", destroy_member_session_path, method: :delete, class: "btn text-secondary mr-3" %></li>
+                <li class="nav-item"><%= link_to "ログアウト", destroy_member_session_path, method: :delete, class: "btn text-secondary mr-3, 'data-turbolinks': false" %></li>
                 <li class="search-box-for-responsive"><%= render "public/shared/search" %></li>
               </ul>
             </div>
