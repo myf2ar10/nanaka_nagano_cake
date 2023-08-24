@@ -2,8 +2,7 @@
 <div class="container p-3">
   <div class="row　address-box">
     <div class="col-md-12 address-main-box">
-      <h2 class="mb-5 mt-3 address-title">管理者ログイン</h2>
-      <!--<div class="container">-->
+      <h3 class="mb-5 mt-3 address-title">管理者ログイン</h3>
       <p class="alert text-center text-danger"><%= alert %></p>
       <%= form_with model: @admin, url: admin_session_path do |f| %>
         <div class="row address-box">
@@ -26,8 +25,6 @@
           </div>
         </div>
       <% end %>
-      <!--</div>-->
-
       <%= render "admin/shared/links" %>
     </div>
   </div>

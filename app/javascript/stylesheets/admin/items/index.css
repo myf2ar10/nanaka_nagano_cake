@@ -3,7 +3,28 @@
 }
 
 @media screen and (max-width:480px) {
-  .price-responsive{
-    white-space:    wrap;
+  .admin-item-table{
+    margin:         auto;
+  }
+  .admin-item-table th, .admin-item-table td {
+    padding:        0 3px;
+    max-width:      100px;
+    vertical-align: middle;
+    text-align:     center;
+  }
+  .admin-item-table th{
+
+    margin-right:   3px;
+    margin-left:    3px;
+  }
+  .admin-item-container{
+    max-width:      100%;
+    display:        block;
+    margin-right:   auto;
+    margin-left:    auto;
+  }
+  .admin-item-from{
+    max-width:      100%;
+    padding:        0px;
   }
 }
