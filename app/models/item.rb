@@ -16,7 +16,7 @@ class Item < ApplicationRecord
   end
 
   def self.looks(search, word)
-    @item = Item.where("name LIKE?","%#{word}%")
+    @item = Item.where("is_active = ? AND name LIKE ?", true, "%#{word}%")
   end
-  
+
 end

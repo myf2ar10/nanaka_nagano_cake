@@ -1,0 +1,23 @@
+<% if @items.blank? %>
+  <h4>商品が見つかりませんでした</h4>
+<% else %>
+  <div class="items d-flex flex-wrap mb-3">
+    <% @items.each do |item| %>
+      <div class="each-item mr-4 mt-4">
+        <div>
+          <%= link_to item_path(item) do %>
+            <%= image_tag item.image, size: "180x135", class: "object-fit-cover" %>
+          <% end %>
+        </div>
+        <div>
+          <%= link_to item_path(item), class: "text-dark" do %>
+            <%= item.name %>
+          <% end %>
+        </div>
+        <div class="text-dark">
+          ￥<%= item.add_tax_price.to_s(:delimited) %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+<% end %>
