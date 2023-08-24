@@ -2,39 +2,56 @@
 <div class="container p-3">
   <div class="row">
     <div class="col-md-12">
-      <h3>商品編集</h3>
 
-      <%= form_with model: @item, url: admin_item_path, "data-turbolinks": false do |f| %>
-      <div class="mt-3">
-        <%= f.label :image, '商品画像' %>
-        <%= f.file_field :image, class: 'w-100' %>
-      </div>
-      <div class="mt-2">
-        <%= f.label :name, '商品名' %>
-        <%= f.text_field :name, class: 'form-control' %>
-      </div>
-      <div class="mt-2">
-        <%= f.label :detail, '商品説明' %>
-        <%= f.text_area :detail, class: 'form-control', rows: 1 %>
-      </div>
-      <div class="mt-2">
-        <%= f.label :genre_id, '商品ジャンル' %>
-        <%= f.collection_select :genre_id, @genres,:id, :name, {prompt: "--選択してください--"}, class: 'form-control' %>
-      </div>
-      <div class="mt-2">
-        <%= f.label :price, '商品価格' %>
-        <%= f.text_field :price, class: 'form-control' %>
-      </div>
-      <div class="mt-2">
-        <%= f.label :is_active, '販売ステータス' %>
-        <%= f.radio_button :is_active, :true, checked: true %>
-        <%= f.label :is_active, "販売中" %>
-        <%= f.radio_button :is_active, :false %>
-        <%= f.label :is_active, "販売停止中" %>
+      <h3 class="mt-4 mb-4">商品編集</h3>
 
+      <div class="container col-9">
+        <%= form_with model: @item, url: admin_item_path, "data-turbolinks": false do |f| %>
+        <div class="row">
+          <div class="col-3">商品画像</div>
+          <div class="col-6">
+            <%= f.file_field :image, class: 'w-100 mt-2' %>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-3">商品名</div>
+          <div class="col-6">
+            <%= f.text_field :name, class: 'form-control mt-2' %>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-3">商品説明</div>
+          <div class="col-6">
+            <%= f.text_area :detail, class: 'form-control mt-2' %>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-3">商品ジャンル</div>
+          <div class="col-6">
+            <%= f.collection_select :genre_id, @genres,:id, :name, {prompt: "--選択してください--"}, class: 'form-control mt-2' %>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-3">税抜価格</div>
+          <div class="col-6">
+            <%= f.text_field :price,class: 'form-control mt-2' %>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-3">販売ステータス</div>
+          <div class="col-6">
+            <%= f.radio_button :is_active, :true, checked: true, class: "mt-2"  %>
+            <%= f.label :is_active, "販売中" %>
+            <%= f.radio_button :is_active, value: false %>
+            <%= f.label :is_active, "販売停止中" %>
+          </div>
+        </div>
+        <div class="text-center mt-3">
+          <%= f.submit "変更を保存", class: 'btn btn-success' %>
+        </div>
+        <% end %>
       </div>
-        <%= f.submit "変更を保存", class: "submit-btn btn btn-success mt-3" %>
-      <% end %>
+
     </div>
   </div>
 </div>
