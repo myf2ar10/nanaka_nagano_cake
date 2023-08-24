@@ -1,0 +1,28 @@
+.main-visual {
+  display: inline-block;
+  background-color: rgba(0,0,0,0.6);
+  height: 100%;
+  width: 100%;
+  padding-top: 100px;
+}
+
+.main-visual-cover {
+  text-align: center;
+  background-image: url(../../../images/top-image.jpg);
+  background-position: 50% 50%;
+  background-size: cover;
+  height: 400px;
+  width: 80%;
+}
+
+@media screen and (min-width:768px) {
+  .flex-for-more-than-md-top{
+    display: flex;
+  }
+}
+
+/*// 商品画像の縦横比を固定*/
+.object-fit-cover {
+  object-fit: cover;
+}
+
