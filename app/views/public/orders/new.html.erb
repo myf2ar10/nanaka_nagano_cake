@@ -50,8 +50,8 @@
           <!--<p class="ml-3">郵便番号(ハイフンなし)</p>-->
           郵便番号(ハイフンなし)
         </div>
-        <div class="col-md-3">
-          <%= f.text_field :new_post_code, placeholder: "0000000" %>
+        <div class="col-md-3 ml-1">
+          <%= f.text_field :new_post_code, placeholder: "0000000", class: "mt-1" %>
         </div>
 
         <div class="offset-md-6"></div>
@@ -62,7 +62,7 @@
           住所
         </div>
         <div class="col-md-6">
-          <%= f.text_field :new_address, class: "w-75", placeholder: "東京都渋谷区1-2-3", class: "mt-2 w-100" %>
+          <%= f.text_field :new_address, class: "w-75", placeholder: "東京都渋谷区1-2-3", class: "w-100 mr-1 ml-1" %>
         </div>
         <div class="offset-md-3"></div>
 
@@ -71,7 +71,7 @@
           宛名
         </div>
         <div class="col-md-3">
-          <%= f.text_field :new_name, placeholder: "平成太郎", class: "mb-2" %>
+          <%= f.text_field :new_name, placeholder: "平成太郎", class: "mb-2 ml-1 mt-1" %>
         </div>
         <div class="offset-md-6"></div>
 
