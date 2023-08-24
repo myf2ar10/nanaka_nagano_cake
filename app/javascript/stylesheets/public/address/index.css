@@ -1,0 +1,49 @@
+@media screen and (max-width:768px) {
+  .title{
+    font-size: 24px;
+  }
+  body{
+    font-size: 14px;
+  }
+  .btn{
+    font-size: 14px;
+  }
+  .main-box{
+    width: 100%;
+    display: block;
+  }
+  .box{
+    width: 100%;
+    display: block;
+  }
+  .box-from{
+    width: 90%;
+    display: block;
+
+  }
+}
+
+@media screen and (max-width:480px) {
+  .title{
+    font-size: 24px;
+  }
+  body{
+    font-size: 14px;
+  }
+  .btn{
+    font-size: 14px;
+  }
+  .main-box{
+    width: 100%;
+    display: block;
+  }
+  .box{
+    width: 100%;
+    display: block;
+  }
+  .box-from{
+    width: 90%;
+    display: block;
+
+  }
+}
