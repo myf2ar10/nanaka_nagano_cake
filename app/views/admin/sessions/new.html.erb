@@ -1,29 +1,27 @@
 <%= render 'admin/shared/header.html.erb' %>
 <div class="container p-3">
-  <div class="row">
-    <div class="col-md-12">
-      <div class="col-md-3">
-      </div>
-      <h2 class="mb-5 mt-3">管理者ログイン</h2>
+  <div class="row　address-box">
+    <div class="col-md-12 address-main-box">
+      <h2 class="mb-5 mt-3 address-title">管理者ログイン</h2>
       <!--<div class="container">-->
       <p class="alert text-center text-danger"><%= alert %></p>
       <%= form_with model: @admin, url: admin_session_path do |f| %>
-        <div class="row">
-          <div class="col-3">メールアドレス</div>
-          <div class="col-6 mb-3">
+        <div class="row address-box">
+          <div class="col-3 address-label">メールアドレス</div>
+          <div class="col-6 mb-3 address-from">
             <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "sample@example.com", class: 'form-control' %>
           </div>
         </div>
 
-        <div class="row">
-          <div class="col-3">パスワード</div>
-          <div class="col-6 mb-3">
+        <div class="row address-box">
+          <div class="col-3 address-label">パスワード</div>
+          <div class="col-6 mb-3 address-from">
             <%= f.password_field :password, autocomplete: "current-password", class: 'form-control' %>
           </div>
         </div>
 
-        <div class="row">
-          <div class="col-md-3 offset-md-3 mt-3">
+        <div class="row address-box">
+          <div class="col-md-3 offset-md-3 mt-3 address-btn address-btn-right">
             <%= f.submit "ログイン", class: "btn btn-success" %>
           </div>
         </div>
