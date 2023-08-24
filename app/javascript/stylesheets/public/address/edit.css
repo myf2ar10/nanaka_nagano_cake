@@ -44,22 +44,7 @@
     margin-right:   auto;
     margin-left:    auto;
   }
-  .table{
-    margin:         auto;
-  }
-  .table th, .table td {
-    padding:        0 3px;
-    vertical-align: middle;
-    text-align: center;
-  }
-  .table th{
-    white-space:    nowrap;
-    margin-right:   3px;
-    margin-left:    3px;
-  }
-  .nowarp{
-    white-space:    nowrap;
-  }
+
 }
 
 @media screen and (max-width:480px) {
@@ -108,20 +93,5 @@
     margin-right:   auto;
     margin-left:    auto;
   }
-  .table{
-    margin:         auto;
-  }
-  .table th, .table td {
-    padding:        0 3px;
-    vertical-align: middle;
-    text-align: center;
-  }
-  .table th{
-    white-space:    nowrap;
-    margin-right:   3px;
-    margin-left:    3px;
-  }
-  .nowarp{
-    white-space:    nowrap;
-  }
+
 }
