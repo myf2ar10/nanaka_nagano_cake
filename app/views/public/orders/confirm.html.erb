@@ -48,29 +48,23 @@
     </table>
   </div>
 
-  <!--<div class="col-md-12">-->
   <div class="col-5 col-md-3 offset-md-2">
-    <!--<div class="pay-method d-flex mb-3">-->
-      <h5 class="mr-5">支払方法</h5>
+    <h5 class="mr-5">支払方法</h5>
   </div>
   <div class="col-7 col-md-7">
-      <% if @selected_pay_method == "credit_card" %>
-        クレジットカード
-      <% else %>
-        銀行振込
-      <% end %>
-    <!--</div>-->
+    <% if @selected_pay_method == "credit_card" %>
+      クレジットカード
+    <% else %>
+      銀行振込
+    <% end %>
   </div>
 
   <div class="col-5 col-md-3 offset-md-2">
-    <!--<div  class="shipping-address d-flex mb-3">-->
-      <h5 class="mr-5">お届け先</h5>
+    <h5 class="mr-5">お届け先</h5>
   </div>
   <div class="col-7 col-md-7">
-      〒<%= @selected_address %>
+    〒<%= @selected_address %>
   </div>
-    <!--</div>-->
-
 
     <div class="text-center mb-4">
       <%= form_with url: orders_path, method: :post do %>
@@ -83,17 +77,12 @@
           <%= hidden_field_tag 'order[new_address]', params[:order][:new_address] %>
           <%= hidden_field_tag 'order[new_name]', params[:order][:new_name] %>
         <% end %>
-      <!--  <%#= submit_tag "注文を確定する", class: "btn btn-success" %>-->
-      <!--<%# end %>-->
     </div>
-  <!--</div>-->
 
   <div class="col-12 text-center mt-3">
     <%= submit_tag "注文を確定する", class: "btn btn-success" %>
     <% end %>
   </div>
-
-  <!--</div>-->
 
   </div>
 </div>
