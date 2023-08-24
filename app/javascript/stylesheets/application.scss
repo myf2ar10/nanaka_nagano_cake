@@ -107,3 +107,18 @@ footer {
   }
 
 }
+
+/*ページネーションのデザイン*/
+.pagination>li>a {
+  color: #696969;   /*文字の色を変える*/
+}
+
+/* 表示しているページ番号のデザイン */
+.page-item.active .page-link {
+  background-color: #F17070;     /*背景の色を変える*/
+  border: none;
+}
+
+/*ホバー時のデザイン*/
+.pagination>li>a:hover {
+}

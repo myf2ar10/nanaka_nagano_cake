@@ -29,3 +29,27 @@
 body {
   background-image: url(../../../images/background.jpg);
 }
+
+
+@media screen and (max-width:767px) {
+  .new-items-title {
+    text-align: center;
+  }
+
+  .new-items-title-header {
+    border-bottom: 1px solid #dee2e6;
+    padding-bottom: 1rem;
+  }
+
+  .new-item {
+    margin-top: 1.5rem;
+  }
+
+
+}
+
+@media screen and (min-width:768px) {
+  .new-items-title {
+    text-align: left;
+  }
+}
