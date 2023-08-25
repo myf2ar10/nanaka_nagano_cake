@@ -3,10 +3,10 @@
   <div class="row">
 
     <div class="col-md-12">
-      <h3 class="mb-5 mt-3">注文履歴詳細</h3>
+      <h3 class="mb-5 mt-3 address-title">注文履歴詳細</h3>
     </div>
 
-    <div class="col-md-3 offset-md-1 col-4 offset-1">
+    <div class="col-md-3 offset-md-1 col-4 offset-1 admin-order-label">
       <div>購入者</div>
     </div>
 
@@ -14,7 +14,7 @@
       <div><%= link_to @order.name, admin_member_path(@order.member_id), class: "text-dark" %></div>
     </div>
 
-    <div class="col-md-3 offset-md-1 col-4 offset-1">
+    <div class="col-md-3 offset-md-1 col-4 offset-1 admin-order-label">
       <div>注文日</div>
     </div>
 
@@ -22,19 +22,19 @@
       <div><%= @order.created_at.strftime('%Y/%m/%d') %></div>
     </div>
 
-    <div class="col-md-3 offset-md-1 col-4 offset-1">
+    <div class="col-md-3 offset-md-1 col-4 offset-1 admin-order-label">
       <div>配送先</div>
     </div>
 
     <div class="col-md-8 col-7">
       <div>
-        〒<%= @order.post_code %>
-        <%= @order.address %>
-        <%= @order.name %>
+        <div>〒<%= @order.post_code.to_s.insert(3, "-") %></div>
+        <div><%= @order.address %></div>
+        <div><%= @order.name %></div>
       </div>
     </div>
 
-    <div class="col-md-3 offset-md-1 col-4 offset-1">
+    <div class="col-md-3 offset-md-1 col-4 offset-1 admin-order-label">
       <div>支払方法</div>
     </div>
 
@@ -42,11 +42,11 @@
       <div><%= @order.pay_method_i18n %></div>
     </div>
 
-    <div class="col-md-3 offset-md-1 col-4 offset-1">
+    <div class="col-md-3 offset-md-1 col-4 offset-1 admin-order-label">
       <div>注文ステータス</div>
     </div>
 
-      <div class="col-md-8 col-7">
+      <div class="col-md-8 col-7 address-btn address-btn-right">
         <div class="mr-3 ml-1">
           <%= form_with model: @order, url: admin_order_path do |f| %>
            <%= f.select :status, Order.statuses.keys.map { |k| [I18n.t("enums.order.status.#{k}"), k]}, class: 'from-control' %>
@@ -55,8 +55,8 @@
         </div>
       </div>
 
-    <div class="col-12 col-md-8 mt-3">
-      <table class="table">
+    <div class="col-12 col-md-8 mt-3 admin-order-table">
+      <table class="table admin-order-table">
         <thead class="table-secondary">
           <th>商品名</th>
           <th>単価(税込)</th>
@@ -86,11 +86,11 @@
       </table>
     </div>
 
-    <div class="col-11 offset-1 col-md-3 mt-3">
-      <table>
+    <div class="col-11 offset-1 col-md-3 mt-3 admin-order-right">
+      <table class="admin-order-right">
         <tr>
-          <td><h5>商品合計</h5></td>
-          <td>
+          <td><h5 class="admin-order-peice-label">商品合計</h5></td>
+          <td class="text-right">
             <% ary = [] %>
             <% @order_details.each do |order_detail| %>
               <% ary << (order_detail.price * order_detail.quantity) %>
@@ -99,12 +99,12 @@
           </td>
         </tr>
         <tr>
-          <td><h5>送料</h5></td>
-          <td><%= @order.shipping_fee.to_s(:delimited) %>円</td>
+          <td><h5 class="admin-order-peice-label">送料</h5></td>
+          <td class="text-right"><%= @order.shipping_fee.to_s(:delimited) %>円</td>
         </tr>
         <tr>
-          <td><h5 class="mr-3">請求金額合計</h5></td>
-          <td><%= @order.total_price.to_s(:delimited) %>円</td>
+          <td><h5 class="mr-3 admin-order-peice-label">請求金額合計</h5></td>
+          <td class="text-right"><%= @order.total_price.to_s(:delimited) %>円</td>
         </tr>
       </table>
     </div>
