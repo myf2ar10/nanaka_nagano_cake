@@ -16,7 +16,7 @@ class Public::MembersController < ApplicationController
       redirect_to members_mypage_path
     else
       @member = current_member
-      flash[:notice] = "会員情報の変更に失敗しました"
+      flash.now[:notice] = "会員情報の変更に失敗しました"
       render :edit
     end
   end

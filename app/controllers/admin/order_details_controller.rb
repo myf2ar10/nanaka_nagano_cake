@@ -19,7 +19,7 @@ class Admin::OrderDetailsController < ApplicationController
       @order = Order.find(params[:id])
       @order_details = OrderDetail.where(order_id: @order.id)
       render "orders/show"
-      flash[:notice] = "製作ステータスの更新に失敗しました"
+      flash.now[:notice] = "製作ステータスの更新に失敗しました"
     end
 
   end

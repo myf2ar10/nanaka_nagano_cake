@@ -13,7 +13,7 @@ class Public::AddressesController < ApplicationController
     else
       @addresses = Address.where(member_id: current_member.id)
       @address = Address.new
-      flash[:notice] = "住所の新規登録に失敗しました。"
+      flash.now[:notice] = "住所の新規登録に失敗しました。"
       render :index
     end
   end
@@ -29,7 +29,7 @@ class Public::AddressesController < ApplicationController
        redirect_to addresses_path
     else
       @address = Address.find(params[:id])
-      flash[:notice] = "住所の編集に失敗しました。"
+      flash.now[:notice] = "住所の編集に失敗しました。"
       render :edit
     end
   end
@@ -40,7 +40,7 @@ class Public::AddressesController < ApplicationController
        flash[:notice] = "住所を削除しました。"
        redirect_to addresses_path
     else
-       flash[:notice] = "住所を削除に失敗しました。"
+       flash.now[:notice] = "住所を削除に失敗しました。"
        @addresses = Address.where(member_id: current_member.id)
        @address = Address.new
        render :index
