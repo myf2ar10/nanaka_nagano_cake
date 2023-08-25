@@ -16,7 +16,7 @@ class Admin::ItemsController < ApplicationController
       flash[:notice] = "新規登録に成功しました。"
       redirect_to admin_item_path(item.id)
     else
-      flash[:notice] = "新規登録に失敗しました。"
+      flash.now[:notice] = "新規登録に失敗しました。"
       @item = Item.new
       @genres = Genre.all
       render :new
@@ -38,7 +38,7 @@ class Admin::ItemsController < ApplicationController
       flash[:notice] = "編集に成功しました。"
       redirect_to admin_item_path(item.id)
     else
-      flash[:notice] = "編集に失敗しました。"
+      flash.now[:notice] = "編集に失敗しました。"
       @item = Item.find(params[:id])
       @genres = Genre.all
       render :edit

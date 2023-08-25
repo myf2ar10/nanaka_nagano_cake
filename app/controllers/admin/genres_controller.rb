@@ -13,7 +13,7 @@ class Admin::GenresController < ApplicationController
       flash[:notice] = "ジャンルの登録に成功しました。"
       redirect_to admin_genres_path
     else
-      flash[:notice] = "ジャンルの登録に失敗しました。"
+      flash.now[:notice] = "ジャンルの登録に失敗しました。"
       @genres = Genre.all
       render :index
     end
@@ -31,7 +31,7 @@ class Admin::GenresController < ApplicationController
       flash[:notice] = "ジャンルの編集に成功しました。"
       redirect_to admin_genres_path
     else
-      flash[:notice] = "ジャンルの編集に失敗しました。"
+      flash.now[:notice] = "ジャンルの編集に失敗しました。"
       @genre = Genre.find(params[:id])
       render :edit
     end

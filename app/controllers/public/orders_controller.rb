@@ -28,14 +28,14 @@ class Public::OrdersController < ApplicationController
         selected = Address.find(params[:order][:registered_address_id])
         @selected_address = selected.post_code + " " + selected.address + " " + selected.name
       else
-        flash[:notice] = "お届け先を選択してください"
+        flash.now[:notice] = "お届け先を選択してください"
         render :new
       end
     when "new_address"
       unless params[:order][:new_post_code] == "" && params[:order][:new_address] == "" && params[:order][:new_name] == ""
         @selected_address = params[:order][:new_post_code] + " " + params[:order][:new_address] + " " + params[:order][:new_name]
       else
-        flash[:notice] = "お届け先を記入してください"
+        flash.now[:notice] = "お届け先を記入してください"
         render :new
       end
     end
@@ -81,7 +81,7 @@ class Public::OrdersController < ApplicationController
       @cart_items.destroy_all
       redirect_to complete_orders_path
     else
-      flasj[:notice] = "注文が確定できませんでした。もう一度やり直してください。"
+      flash.now[:notice] = "注文が確定できませんでした。もう一度やり直してください。"
       render :items
     end
   end
