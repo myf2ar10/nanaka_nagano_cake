@@ -1,17 +1,21 @@
 <%= render 'admin/shared/header.html.erb' %>
 <div class="container p-3">
-  <div class="row">
-    <div class="col-md-12">
-      <h3 class="ml-5 my-5">ジャンル編集</h3>
-      <div class="form-group">
-        <%= form_with model: @genre, url:admin_genre_path, method: :patch do |f| %>
-          <%= f.label "ジャンル名" %>
-          <div class="d-flex">
-          <%= f.text_field :name, class: "form-control mr-3 w-50" %>
-          <%=f.submit "変更を保存", class:"btn btn-success" %>
-          </div>
-        <% end %>
-      </div>
-    </div>
+  <div class="col-md-12 mb-3 mt-3">
+    <h3>ジャンル編集</h3>
   </div>
+
+  <%= form_with model: @genre, url:admin_genre_path, method: :patch do |f| %>
+  <div class="row">
+    <div class="col-md-2">
+      <%= f.label :name, "ジャンル名" %>
+    </div>
+    <div class="col-md-4">
+      <%= f.text_field :name, class: "form-control mb-1" %>
+    </div>
+    <div class="col-md-2">
+      <%=f.submit "変更を保存", class:"btn btn-success" %>
+    </div>
+    <div class="offset-md-4"></div>
+  </div>
+  <% end %>
 </div>

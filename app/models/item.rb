@@ -15,8 +15,10 @@ class Item < ApplicationRecord
     (self.price * 1.08).round
   end
 
-  def self.looks(search, word)
-    @item = Item.where("is_active = ? AND name LIKE ?", true, "%#{word}%")
+  def self.looks(search, word, include_inactive = false)
+    items = where("name LIKE ?", "%#{word}%")
+    items = items.where(is_active: true) unless include_inactive
+    items
   end
 
 end

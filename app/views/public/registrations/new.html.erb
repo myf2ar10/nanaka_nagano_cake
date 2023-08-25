@@ -9,68 +9,105 @@
       <p class="mb-5">こちらから会員登録を行ってください。</p>
 
       <div class="bg-white py-4 mx-auto w-100">
-          <%= form_with model: @member, url: member_registration_path do |f| %>
 
-        <table class="table table-borderless">
-          <tr>
-            <td class="text-right">名前</td>
-            <td><span class="text-light necessary-field p-1 px-2 ml-2 small rounded">必須</span></td>
-            <td><%= f.text_field :family_name, autofocus: true, placeholder: "令和", class: "mr-1 w-75 form-control" %></td>
-            <td><%= f.text_field :first_name, placeholder: "道子", class: "w-75 form-control" %></td>
-          </tr>
+        <div class="row">
+          <div class="col-md-3">
+            氏名<span class="text-light necessary-field p-1 px-2 ml-2 small rounded">必須</span>
+          </div>
 
-          <tr>
-            <td class="text-right">フリガナ</td>
-            <td><span class="text-light necessary-field p-1 px-2 ml-2 small rounded">必須</span></td>
-            <td><%= f.text_field :family_name_kana, placeholder: "レイワ", class: "w-75 form-control" %></td>
-            <td><%= f.text_field :first_name_kana, placeholder: "ミチコ", class: "w-75 form-control" %></td>
-          </tr>
+          <div class="col-md-4">
+            <%= form_with model:@member, url: member_registration_path do |f| %>
+            <%= f.text_field :family_name, autofocus: true, placeholder: "令和", class: "form-control mt-1" %>
+          </div>
 
-          <tr>
-            <td class="text-right">メールアドレス</td>
-            <td><span class="text-light necessary-field p-1 px-2 ml-2 small rounded">必須</span></td>
-            <td><%= f.text_field :email, placeholder: "sample@example.com", class: "w-75 form-control" %></td>
-          </tr>
+          <div class="col-md-4">
+            <%= f.text_field :first_name, placeholder: "道子", class: "form-control mt-1" %>
+          </div>
 
-          <tr>
-            <td class="text-right">郵便番号(ハイフンなし)</td>
-            <td><span class="text-light necessary-field p-1 px-2 ml-2 small rounded">必須</span></td>
-            <td><%= f.text_field :post_code, placeholder: "0000000", class: "w-75 form-control" %></td>
-          </tr>
+          <div class="offset-md-1"></div>
 
-          <tr>
-            <td class="text-right">住所</td>
-            <td><span class="text-light necessary-field p-1 px-2 ml-2 small rounded">必須</span></td>
-            <td><%= f.text_field :address, placeholder: "東京都渋谷区代々木神園町0-0", class: "w-100 form-control" %></td>
-          </tr>
+          <div class="col-md-3 mt-3">
+            フリガナ<span class="text-light necessary-field p-1 px-2 ml-2 small rounded">必須</span>
+          </div>
 
-          <tr>
-            <td class="text-right">電話番号(ハイフンなし)</td>
-            <td><span class="text-light necessary-field p-1 px-2 ml-2 small rounded">必須</span></td>
-            <td><%= f.text_field :telephone_number, placeholder: "00000000000", class: "w-75 form-control" %></td>
-          </tr>
+          <div class="col-md-4">
+            <%= f.text_field :family_name_kana, placeholder: "レイワ", class: "form-control mt-1" %>
+          </div>
 
-          <tr>
-            <td class="text-right">パスワード
-              <% if @minimum_password_length %>
-                (<%= @minimum_password_length %> 文字以上)
-              <% end %>
-            </td>
-            <td><span class="text-light necessary-field p-1 px-2 ml-2 small rounded">必須</span></td>
-            <td><%= f.password_field :password, class: "w-75 form-control" %></td>
-          </tr>
-          <tr>
-            <td class="text-right">パスワード(確認用)</td>
-            <td><span class="text-light necessary-field p-1 px-2 ml-2 small rounded">必須</span></td>
-            <td><%= f.password_field :password_confirmation, class: "w-75 form-control" %></td>
-          </tr>
-        </table>
+          <div class="col-md-4">
+            <%= f.text_field :first_name_kana, placeholder: "ミチコ", class: "form-control mt-1" %>
+          </div>
 
-        <div class="text-center">
-          <%= f.submit "新規登録", class:"btn rounded-pill necessary-field text-light px-3 mt-4" %></td>
+          <div class="offset-md-1"></div>
+
+          <div class="col-md-3 mt-3">
+            メールアドレス<span class="text-light necessary-field p-1 px-2 ml-2 small rounded">必須</span>
+          </div>
+
+          <div class="col-md-4">
+            <%= f.text_field :email, placeholder: "sample@example.com", class: "w-100 form-control mt-1" %>
+          </div>
+
+          <div class="offset-md-5"></div>
+
+          <div class="col-md-3 mt-3">
+            郵便番号(ハイフンなし)<span class="text-light necessary-field p-1 px-2 ml-2 small rounded">必須</span>
+          </div>
+
+          <div class="col-md-4">
+            <%= f.text_field :post_code, placeholder: "0000000", class: "form-control mt-1" %>
+          </div>
+
+          <div class="offset-md-5"></div>
+
+          <div class="col-md-3 mt-3">
+            住所<span class="text-light necessary-field p-1 px-2 ml-2 small rounded">必須</span>
+          </div>
+
+          <div class="col-md-8">
+            <%= f.text_field :address, placeholder: "東京都渋谷区代々木神園町0-0", class: "w-100 form-control mt-1" %>
+          </div>
+
+          <div class="offset-md-1"></div>
+
+          <div class="col-md-3 mt-3">
+            電話番号(ハイフンなし)<span class="text-light necessary-field p-1 px-2 ml-2 small rounded">必須</span>
+          </div>
+
+          <div class="col-md-4">
+            <%= f.text_field :telephone_number, placeholder: "0000000000", class: "form-control mt-1" %>
+          </div>
+
+          <div class="offset-md-5"></div>
+
+          <div class="col-md-3 mt-3">
+            パスワード<% if @minimum_password_length %>
+                        (<%= @minimum_password_length %> 文字以上)
+                      <% end %>
+            <span class="text-light necessary-field p-1 px-2 ml-2 small rounded">必須</span>
+          </div>
+
+          <div class="col-md-4">
+            <%= f.password_field :password, class: "form-control mt-1" %>
+          </div>
+
+          <div class="offset-md-5"></div>
+
+          <div class="col-md-3 mt-3">
+            パスワード(確認用)<span class="text-light necessary-field p-1 px-2 ml-2 small rounded">必須</span>
+          </div>
+
+          <div class="col-md-4">
+            <%= f.password_field :password_confirmation, class: "form-control mt-1" %>
+          </div>
+
+          <div class="offset-md-5"></div>
+
         </div>
-
-      <% end %>
+        <div class="text-center">
+          <%= f.submit "新規登録", class:"btn rounded-pill necessary-field text-light px-3 mt-4" %>
+            <% end %>
+        </div>
       </div>
 
       <div>
@@ -80,8 +117,6 @@
           <%= link_to "こちら", new_member_session_path, class: "btn text-light rounded-pill necessary-field px-4 mb-5", 'data-turbolinks': false %>
         </div>
       </div>
-
-
     </div>
   </div>
 </div>
