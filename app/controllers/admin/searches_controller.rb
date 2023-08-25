@@ -1,7 +1,8 @@
 class Admin::SearchesController < ApplicationController
+  before_action :authenticate_admin!
 
   def items_search
-    # @genres = Genre.all
-    @items = Item.looks(params[:search], params[:word]).page(params[:page])
+    @items = Item.looks(params[:search], params[:word], true).page(params[:page])
   end
+
 end
