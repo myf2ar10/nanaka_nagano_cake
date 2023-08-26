@@ -1,0 +1,16 @@
+@media screen and (min-width:768px) {
+  .text-right-more-than-md {
+  text-align: right;
+  }
+
+  .flex-more-than-md {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+  }
+
+  .space-more-than-md {
+    margin-top: 10px;
+  }
+
+}
