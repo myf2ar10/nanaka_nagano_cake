@@ -1,40 +1,45 @@
 class Public::CartItemsController < ApplicationController
-  before_action :authenticate_member!
+  before_action :authenticate_member!, only: [:index, :update, :destroy, :destroy_all]
 
   def index
     @cart_items = CartItem.where(member:current_member)
     @total = @cart_items.inject(0) { |sum, item| sum + item.subtotal }
   end
-  
+
 
   def create
-    @cart_item = CartItem.new(cart_item_params)
-    @cart_item.member_id = current_member.id
-  
-    @existing_cart_item = CartItem.find_by(item: @cart_item.item)
-  
-    if @existing_cart_item.present?
-      total_quantity = @existing_cart_item.quantity + @cart_item.quantity
-  
-      if total_quantity <= 10
-        @existing_cart_item.quantity = total_quantity
-  
-        if @existing_cart_item.save
+
+    unless member_signed_in?
+      session[:previous_url] = request.referer
+      redirect_to new_member_session_path, alert: 'ログインまたは新規登録してください。'
+    else
+      @cart_item = CartItem.new(cart_item_params)
+      @cart_item.member_id = current_member.id
+      @existing_cart_item = CartItem.find_by(item: @cart_item.item)
+
+      if @existing_cart_item.present?
+        total_quantity = @existing_cart_item.quantity + @cart_item.quantity
+
+        if total_quantity <= 10
+          @existing_cart_item.quantity = total_quantity
+
+          if @existing_cart_item.save
+            redirect_to cart_items_path, notice: "商品を追加しました。"
+          else
+            flash.now[:notice] = "商品の追加に失敗しました"
+            render_items_show
+          end
+        else
+          flash.now[:notice] = "カート内の同一商品が10個を超えています。カート内をご確認ください。"
+          render_items_show
+        end
+      else
+        if @cart_item.save
           redirect_to cart_items_path, notice: "商品を追加しました。"
         else
           flash.now[:notice] = "商品の追加に失敗しました"
           render_items_show
         end
-      else
-        flash.now[:notice] = "カート内の同一商品が10個を超えています。カート内をご確認ください。"
-        render_items_show
-      end
-    else
-      if @cart_item.save
-        redirect_to cart_items_path, notice: "商品を追加しました。"
-      else
-        flash.now[:notice] = "商品の追加に失敗しました"
-        render_items_show
       end
     end
   end
@@ -71,7 +76,7 @@ class Public::CartItemsController < ApplicationController
   end
 
   private
-  
+
   def cart_item_params
     params.require(:cart_item).permit(:item_id, :quantity)
   end

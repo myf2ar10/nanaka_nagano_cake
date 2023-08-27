@@ -41,7 +41,7 @@
             <ul class="navbar-nav horizontal-for-more-than-md">
               <li class="nav-item"><%= link_to "About", about_path, class: "btn text-secondary mr-3" %></li>
               <li class="nav-item"><%= link_to "商品一覧", items_path, class: "btn text-secondary mr-3" %></li>
-              <li class="nav-item"><%= link_to "新規登録", new_member_registration_path, class: "btn text-secondary mr-3" %></li>
+              <li class="nav-item"><%= link_to "新規登録", new_member_registration_path, class: "btn text-secondary mr-3", 'data-turbolinks': false %></li>
               <li class="nav-item"><%= link_to "ログイン", new_member_session_path, class: "btn text-secondary mr-3", 'data-turbolinks': false %></li>
               <li class="search-box-for-responsive"><%= render "public/shared/search" %></li>
             </ul>
