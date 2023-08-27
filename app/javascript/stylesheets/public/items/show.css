@@ -1,0 +1,30 @@
+@media screen and (max-width:768px) {
+  .public-item-container{
+    max-width:      100%;
+    display:        block !important;
+    margin-right:   auto;
+    margin-left:    auto;
+  }
+  .public-item-image{
+    margin-right:   auto;
+    margin-left:    auto;
+    width: 360px;
+    height: 270px;
+  }
+
+}
+
+@media screen and (max-width:480px) {
+ .public-item-container{
+    max-width:      100%;
+    display:        block !important;
+    margin-right:   auto;
+    margin-left:    auto;
+  }
+  .public-item-image{
+    margin-right:   auto;
+    margin-left:    auto;
+    width: 360px;
+    height: 270px;
+  }
+}
