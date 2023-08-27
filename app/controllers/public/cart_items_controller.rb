@@ -15,7 +15,7 @@ class Public::CartItemsController < ApplicationController
     else
       @cart_item = CartItem.new(cart_item_params)
       @cart_item.member_id = current_member.id
-      @existing_cart_item = CartItem.find_by(item: @cart_item.item)
+      @existing_cart_item = current_member.cart_items.find_by(item_id: @cart_item.item.id)
 
       if @existing_cart_item.present?
         total_quantity = @existing_cart_item.quantity + @cart_item.quantity
