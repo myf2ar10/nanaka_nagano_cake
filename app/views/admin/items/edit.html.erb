@@ -42,7 +42,7 @@
           <div class="col-6 admin-item-from">
             <%= f.radio_button :is_active, :true, checked: true, class: "mt-2"  %>
             <%= f.label :is_active, "販売中" %>
-            <%= f.radio_button :is_active, value: false %>
+            <%= f.radio_button :is_active, :false %>
             <%= f.label :is_active, "販売停止中" %>
           </div>
         </div>
