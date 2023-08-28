@@ -1,2 +1,58 @@
-<h1>Public::Members#show</h1>
-<p>Find me in app/views/public/members/show.html.erb</p>
+<%= render 'public/shared/header.html.erb' %>
+<div class="container p-3">
+  <div class="row">
+
+    <div class="col-md-12 mb-3 mt-3">
+      <h3>マイページ</h3>
+    </div>
+
+
+    <!--<div class="col-md-2 mb-3"><h4>登録情報</h4></div>-->
+    <div class="col-md-3 mb-3"><h4>登録情報</h4></div>
+    <!--<div class="col-md-2 offset-col-2 mb-3"><%#= link_to "編集する", members_information_edit_path, class: "btn btn-success", "data-turbolinks": false %></div>-->
+    <div class="col-md-3 offset-md-1 mb-3"><%= link_to "編集する", members_information_edit_path, class: "btn btn-success", "data-turbolinks": false %></div>
+
+    <div class="offset-md-5 mb-3"></div>
+
+    <div class="col-md-8">
+      <table class="table table-bordered mb-3">
+        <tr>
+          <td class="table-secondary">氏名</td>
+          <td><%= @member.family_name + @member.first_name %></td>
+        </tr>
+        <tr>
+          <td class="table-secondary">カナ</td>
+          <td><%= @member.family_name_kana + @member.first_name_kana %></td>
+        </tr>
+        <tr>
+          <td class="table-secondary">郵便番号</td>
+          <td><%= @member.post_code %></td>
+        </tr>
+        <tr>
+          <td class="table-secondary">住所</td>
+          <td><%= @member.address %></td>
+        </tr>
+        <tr>
+          <td class="table-secondary">電話番号</td>
+          <td><%= @member.telephone_number %></td>
+        </tr>
+        <tr>
+          <td class="table-secondary">メールアドレス</td>
+          <td><%= @member.email %></td>
+        </tr>
+      </table>
+    </div>
+    <div class="offset-md-4"></div>
+
+    <div class="col-md-3"><h4>配送先</h4></div>
+    <div class="col-md-3 offset-md-1 mb-3"><%= link_to "一覧を見る", addresses_path, class: "btn btn-info"  %></div>
+    <div class="offset-md-5"></div>
+
+    <div class="col-md-3"><h4>注文履歴</h4></div>
+    <div class="col-md-3 offset-md-1 mb-3"><%= link_to "一覧を見る", orders_path, class: "btn btn-info" %></div>
+    <div class="offset-md-5"></div>
+
+  </div>
+</div>
+<%= render 'public/shared/footer.html.erb' %>
+

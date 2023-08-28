@@ -1,0 +1,124 @@
+@use '~bootstrap/scss/bootstrap';
+@import url('https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@400;600&display=swap');
+
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Shippori Mincho', serif;
+}
+
+.no-padding {
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+}
+
+// ヘッダー
+
+header {
+  background-color: #FFEAEA;
+  width: 100%;
+}
+
+.search-form {
+  background-color: #FFEAEA;
+}
+
+.header-size {
+  max-width: 980px;
+  margin: 0 auto;
+}
+
+.navbar-toggler {
+  background-color: #FFEAEA;
+}
+
+.navbar-toggler .navbar-toggler-icon {
+  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(108,117,125,1)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E");
+}
+
+// フッター
+
+footer {
+  background-color: #5C574B;
+  width: 100%;
+  min-height: 200px;
+  margin-top:auto;
+}
+
+.footer-size {
+  max-width: 980px;
+  margin: 0 auto;
+}
+
+
+// フッター位置調整用
+.container {
+  min-height: 70vh;
+}
+
+// 以下、レスポンシブ対応
+@media screen and (min-width:992px) {
+  // ヘッダー
+  .search-box-for-responsive{
+    display: none;
+  }
+  .flex-for-more-md{
+    display: flex;
+    flex-direction: column;
+  }
+  .horizontal-for-more-than-md{
+    display: flex;           /* Flexboxを有効にしてアイテムを水平にする */
+    flex-direction: row;     /* アイテムを水平方向に配置 */
+    padding-left: 0;
+  }
+  .horizontal-for-more-than-md > .nav-item {
+    display: flex;           /* アイテムを水平にする */
+    flex: 1 1 auto;          /* アイテムを均等に広げる */
+    margin-right: 0.25rem;   /* アイテム間のスペースを確保 */
+    margin-bottom: 0;        /* 縦のマージンをリセット */
+  }
+
+  // フッター
+  .pull-right-more-lg {
+    text-align: right;
+  }
+
+}
+
+
+@media screen and (max-width:991px) {
+  // ヘッダー
+  .search-box-for-more-than-md{
+    display: none;
+  }
+  .flex-for-until-md {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .flex-for-xs{
+    display: flex;
+  }
+
+  // フッター
+  .put-center-until-lg {
+    text-align: center;
+  }
+
+}
+
+/*ページネーションのデザイン*/
+.pagination>li>a {
+  color: #696969;   /*文字の色を変える*/
+}
+
+/* 表示しているページ番号のデザイン */
+.page-item.active .page-link {
+  background-color: #F17070;     /*背景の色を変える*/
+  border: none;
+}
+
+/*ホバー時のデザイン*/
+.pagination>li>a:hover {
+}

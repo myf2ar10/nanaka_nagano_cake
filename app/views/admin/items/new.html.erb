@@ -1,2 +1,57 @@
-<h1>Admin::Items#new</h1>
-<p>Find me in app/views/admin/items/new.html.erb</p>
+<%= render 'admin/shared/header.html.erb' %>
+<div class="container p-3">
+  <div class="row address-box">
+    <div class="col-md-12 address-main-box">
+
+      <h3 class="mt-4 mb-4 address-title">商品新規登録</h3>
+
+      <div class="container col-9 admin-item-container">
+        <%= form_with model: @item, url: admin_items_path, "data-turbolinks": false do |f| %>
+        <div class="row address-box">
+          <div class="col-3 address-label">商品画像</div>
+          <div class="col-6 admin-item-from">
+            <%= f.file_field :image, class: 'w-100 mt-2' %>
+          </div>
+        </div>
+        <div class="row address-box">
+          <div class="col-3 address-label">商品名</div>
+          <div class="col-6 admin-item-from">
+            <%= f.text_field :name, class: 'form-control mt-2' %>
+          </div>
+        </div>
+        <div class="row address-box">
+          <div class="col-3 address-label">商品説明</div>
+          <div class="col-6 admin-item-from ">
+            <%= f.text_area :detail, class: 'form-control mt-2' %>
+          </div>
+        </div>
+        <div class="row address-box">
+          <div class="col-3 address-label">商品ジャンル</div>
+          <div class="col-6 admin-item-from">
+            <%= f.collection_select :genre_id, @genres,:id, :name, {prompt: "--選択してください--"}, class: 'form-control mt-2' %>
+          </div>
+        </div>
+        <div class="row address-box">
+          <div class="col-3 address-label">税抜価格</div>
+          <div class="col-6 admin-item-from">
+            <%= f.text_field :price,class: 'form-control mt-2' %>
+          </div>
+        </div>
+        <div class="row address-box">
+          <div class="col-3 address-label">販売ステータス</div>
+          <div class="col-6 admin-item-from">
+            <%= f.radio_button :is_active, :true, checked: true, class: "mt-2"  %>
+            <%= f.label :is_active, "販売中" %>
+            <%= f.radio_button :is_active, :false %>
+            <%= f.label :is_active, "販売停止中" %>
+          </div>
+        </div>
+        <div class="text-center mt-3 address-btn address-btn-right">
+          <%= f.submit "新規登録", class: 'btn btn-success' %>
+        </div>
+        <% end %>
+      </div>
+
+    </div>
+  </div>
+</div>

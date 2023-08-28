@@ -1,55 +1,12 @@
 Rails.application.routes.draw do
-  
+
+
   namespace :admin do
-    get 'orders/show'
-  end
-  namespace :admin do
-    get 'members/index'
-    get 'members/show'
-    get 'members/edit'
-  end
-  namespace :admin do
-    get 'genres/index'
-    get 'genres/edit'
-  end
-  namespace :admin do
-    get 'items/index'
-    get 'items/new'
-    get 'items/show'
-    get 'items/edit'
-  end
-  namespace :admin do
-    get 'homes/top'
-  end
-  namespace :public do
-    get 'addresses/index'
-    get 'addresses/edit'
-  end
-  namespace :public do
-    get 'orders/new'
-    get 'orders/complete'
-    get 'orders/index'
-    get 'orders/show'
-  end
-  namespace :public do
-    get 'cart_items/index'
-  end
-  namespace :public do
-    get 'members/show'
-    get 'members/edit'
-    get 'members/confirm_quit'
-  end
-  namespace :public do
-    get 'items/index'
-    get 'items/show'
-  end
-  namespace :public do
-    get 'homes/top'
-    get 'homes/about'
+    get 'searches/items_search'
   end
 # 顧客用
-# URL /customers/sign_in ...
-devise_for :member,skip: [:passwords], controllers: {
+# URL /members/sign_in ...
+devise_for :members,skip: [:passwords], controllers: {
   registrations: "public/registrations",
   sessions: 'public/sessions'
 }
@@ -59,5 +16,47 @@ devise_for :member,skip: [:passwords], controllers: {
 devise_for :admin, skip: [:registrations, :passwords] ,controllers: {
   sessions: "admin/sessions"
 }
+
+  # 顧客用
+  scope module: :public do
+    root to: "homes#top"
+    get "/about" => "homes#about"
+    get "members/mypage" => "members#show"
+    get "members/information/edit" => "members#edit"
+    patch "members/information" => "members#update"
+    get "members/confirm_quit" => "members#confirm_quit"
+    patch "members/quit" => "members#quit"
+    get "items_search" => "searches#items_search"
+    get "genre_items_search" => "searches#genre_items_search"
+    resources :items, only: [:index,:show]
+    resources :cart_items, only: [:index, :update, :destroy, :create] do
+      collection do
+        delete "destroy_all"
+      end
+    end
+    resources :orders, only: [:new, :create, :index, :show] do
+      collection do
+        get "confirm"
+        get "complete"
+      end
+    end
+    resources :addresses, except: [:show]
+  end
+
+  #管理者用
+  namespace :admin do
+    root to: "homes#top"
+    get "items_search" => "searches#items_search"
+    resources :items, except: [:destroy]
+    resources :genres, except:  [:show, :destroy]
+    resources :members, only: [:index, :show, :edit, :update]
+    resources :orders, only: [:show, :update] do
+      member do
+        get "individual"
+      end
+    end
+    resources :order_details, only: [:update]
+  end
+
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end

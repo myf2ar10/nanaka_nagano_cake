@@ -1,2 +1,38 @@
-<h1>Admin::Members#index</h1>
-<p>Find me in app/views/admin/members/index.html.erb</p>
+<%= render 'admin/shared/header.html.erb' %>
+<div class="container p-3">
+  <div class="row">
+    <div class="col-md-12">
+
+      <h3 class="mb-4 mt-3">会員一覧</h3>
+
+      <table class="table">
+        <tr class="table-secondary">
+          <th>会員ID</th>
+          <th>氏名</th>
+          <th>メールアドレス</th>
+          <th>ステータス</th>
+        </tr>
+        <% @members.each do |member| %>
+          <tr>
+            <td><%= member.id %></td>
+            <td><%= link_to member.family_name + member.first_name, admin_member_path(member.id) %></td>
+            <td><%= member.email %></td>
+            <td>
+              <% if member.is_deleted == true %>
+                <p class="text-secondary"><strong>退会</strong></p>
+              <% else %>
+                <p class="text-success"><strong>有効</strong></p>
+              <% end %>
+            </td>
+          </tr>
+        <% end %>
+      </table>
+
+       <%= paginate @members, theme: 'bootstrap-5' %>
+
+    </div>
+     <!--render 'admin/shared/footer.html.erb' -->
+  </div>
+</div>
+
+

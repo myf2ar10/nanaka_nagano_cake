@@ -1,0 +1,60 @@
+@media screen and (max-width:768px) {
+  .admin-order-label{
+     margin-left:   0;
+     white-space:   nowrap;
+  }
+  .admin-order-table{
+    margin:         auto;
+    padding:        0;
+  }
+  .admin-order-table th, .admin-order-table td {
+    padding:        0 3px;
+    max-width:      100px;
+    vertical-align: middle;
+    text-align:     center;
+  }
+  .admin-order-table th{
+
+    margin-right:   3px;
+    margin-left:    3px;
+  }
+  .admin-order-right{
+    margin-right:   0;
+    padding-right:  0;
+    float:          right;
+  }
+  .admin-order-peice-label{
+    margin-right:   1rem;
+  }
+}
+
+@media screen and (max-width:576px) {
+  .admin-order-label{
+     margin-left:   0;
+     white-space:   nowrap;
+  }
+  .admin-order-table{
+    margin:         auto;
+    padding:        0;
+  }
+  .admin-order-table th, .admin-order-table td {
+    padding:        0 3px;
+    max-width:      100px;
+    vertical-align: middle;
+    text-align:     center;
+  }
+  .admin-order-table th{
+
+    margin-right:   3px;
+    margin-left:    3px;
+  }
+  .admin-order-right{
+    margin-right:   0;
+    padding-right:  0;
+    float:          right;
+  }
+  .admin-order-peice-label{
+    margin-right:   1rem;
+  }
+
+}

@@ -1,2 +1,101 @@
-<h1>Admin::Members#edit</h1>
-<p>Find me in app/views/admin/members/edit.html.erb</p>
+<%= render 'admin/shared/header.html.erb' %>
+<div class="container p-3">
+  <div class="row">
+
+    <div class="col-11 offset-1">
+      <h3 class="mb-4 mt-3"><%= @member.family_name + @member.first_name %>さんの会員情報編集</h3>
+    </div>
+
+    <div class="col-md-2 mt-2">
+      <p>氏名</p>
+    </div>
+
+    <div class="col-md-4">
+      <%= form_with model: @member, url: admin_member_path, method: :patch do |f| %>
+      <p><%= f.text_field :family_name, class: "mt-2" %></p>
+    </div>
+
+    <div class="col-md-4">
+      <p><%= f.text_field :first_name, class: "mt-2" %></p>
+    </div>
+
+    <div class="offset-md-2"></div>
+
+    <div class="col-md-2">
+      <p>フリガナ</p>
+    </div>
+
+    <div class="col-md-4">
+      <p><%= f.text_field :family_name_kana %></p>
+    </div>
+
+    <div class="col-md-4">
+      <p><%= f.text_field :first_name_kana, class: "mb-2" %></p>
+    </div>
+
+    <div class="offset-md-2"></div>
+
+    <div class="col-md-2 mt-2">
+      <p>郵便番号</p>
+    </div>
+
+    <div class="col-md-4">
+      <p><%= f.text_field :post_code, class: "mt-2" %></p>
+    </div>
+
+    <div class="offset-md-6"></div>
+
+    <div class="col-md-2">
+      <p>住所</p>
+    </div>
+
+    <div class="col-md-8">
+      <p><%= f.text_area :address, rows: 1, class: "w-100 mt-1"%></p>
+    </div>
+
+    <div class="offset-md-2"></div>
+
+    <div class="col-md-2">
+      <p>電話番号</p>
+    </div>
+
+    <div class="col-md-4">
+      <p><%= f.text_field :telephone_number, class: "mt-1" %></p>
+    </div>
+
+    <div class="offset-md-6"></div>
+
+    <div class="col-md-2">
+      <p>メールアドレス</p>
+    </div>
+
+    <div class="col-md-4">
+      <p><%= f.email_field :email, class: "mt-1" %></p>
+    </div>
+
+    <div class="offset-md-6"></div>
+
+    <div class="col-md-2">
+      <p>会員ステータス</p>
+    </div>
+
+    <div class="col-md-4">
+      <p>
+        <%= f.radio_button :is_deleted, :false %><%= f.label :is_deleted, "有効", { value: :false } %>
+        <%= f.radio_button :is_deleted, :true, class: "ml-3" %><%= f.label :is_deleted, "退会", { value: :true } %>
+      </p>
+    </div>
+
+    <div class="offset-md-6"></div>
+
+    <div class="col-md-2 offset-md-2">
+      <%= f.submit "変更を保存", class: "btn btn-success" %>
+    </div>
+    <div class="offset-md-8"></div>
+
+    <% end %>
+
+  </div>
+</div>
+
+
